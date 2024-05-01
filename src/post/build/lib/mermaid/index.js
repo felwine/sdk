@@ -1,4 +1,4 @@
-import { convertMarkdownMermaidToImage } from 'markdown-mermaid-exporter'
+// import { convertMarkdownMermaidToImage } from 'markdown-mermaid-exporter'
 import ensureDirectoryExists from '../../../../lib/fs/ensureDirectoryExists.js'
 import { sha256 } from 'js-sha256'
 

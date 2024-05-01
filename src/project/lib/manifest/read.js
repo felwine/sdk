@@ -1,6 +1,6 @@
 import fsPath from 'path'
-import checkFileExists from '../../../lib/fs/checkFileExists'
-import importYAMLAsync from '../../../lib/fs/importYAMLAsync'
+import checkFileExists from '../../../lib/fs/checkFileExists.js'
+import importYAMLAsync from '../../../lib/fs/importYAMLAsync.js'
 
 export default async ({
   path,

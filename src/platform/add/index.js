@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv'
-import medium from './medium'
+import medium from './medium.js'
 
 dotenv.config()
 

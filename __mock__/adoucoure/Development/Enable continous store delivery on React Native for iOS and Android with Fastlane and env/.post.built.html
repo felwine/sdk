@@ -1,0 +1,68 @@
+<h1>Enable continuous store delivery on React Native for iOS and Android with Fastlane, Gitlab CI and react-native-config</h1>
+<p>A brief encounter of the third type. Mp en</p>
+<img src=".build/7f731bc38d9ba542ee5d7a28c7395df4de40d1790f77762ef15dbc8dc648ff9b.png-1.png">
+<h2>Context and reasoning</h2>
+<p>Continuous delivery is a powerful tool that helps your team automate your app distribution without the tedious manual builds that make you lose a considerable amount of time. In fact, compared to a team that manually delivers their apps at the end of every development cycle, a continuous delivery workflow enabled team is proved to make them [highly performant](<a href="https://continuousdelivery.com/evidence-case-studies/#research">Evidence and case studies - Continuous Delivery</a>). I have experienced this radical shift in mindset first hands when I helped implement for one of my squads the following complete workflow.</p>
+<h3></h3>
+<h3>Pre-requisites</h3>
+<ul>
+<li>
+<p>A working <strong>Gitlab</strong> installation, whether it is self hosted or a gitlab hosted</p>
+</li>
+<li>
+<p>A <strong>react-native</strong> app that builds both on iOS and Android. This setup was done on React-Native 0.73.6</p>
+</li>
+<li>
+<p>A machine with <strong>brew</strong> installed, <strong>ruby</strong> and <strong>gem</strong> (both are already present if you're using any recent mac version)</p>
+</li>
+</ul>
+<h2>Installations</h2>
+<ul>
+<li>
+<p><strong>Fastlane</strong> is available via brew</p>
+<pre><code class="language-shell">brew install fastlane
+</code></pre>
+</li>
+<li>
+<p><em>Typical React-Native cli tools</em></p>
+</li>
+</ul>
+<h2></h2>
+<h2>Local configuration</h2>
+<p>Let's start by making Fastlane work locally for building and uploading a beta application to both the App Store and Google Play Store.</p>
+<h3>iOS</h3>
+<p>First head to your ios folder inside the app:</p>
+<pre><code class="language-sh">cd ios
+</code></pre>
+<ol>
+<li>
+<p><strong>Init fastlane</strong> Fastlane will create a folder and initialize the necessary files</p>
+<pre><code class="language-bash">fastlane init
+</code></pre>
+</li>
+<li>
+<p><strong>Init fastlane match</strong> <em>Fastlane Match</em> is a convenient way of sharing Apple certificates and provisioning profiles across a team without the hassle of creating a distinct set of files for each and every member. <em>Fastlane</em> stores the generated files on a remote folder (the default option is a secured git repository). Since we are on Gitlab we'll be using a handy feature that this platform offers: <em><strong>secure files</strong></em>.</p>
+</li>
+<li>
+<p>Setup <em>Gitlab</em> repository cert files</p>
+<p><img src="assets/3c74db20da71746ddb4be45cac9d9f382972de83.png" alt="Gitlab figure"> If you have a self hosted Gitlab installation via Helm, enable</p>
+<p><img src="assets/LK4VIWNAVZBLLEEGMIOJWDYJLU.jpg" alt="New fi"></p>
+<pre><code class="language-yml">global:
+common:
+  ...
+  ciSecureFiles:
+    enabled: true
+</code></pre>
+</li>
+<li></li>
+</ol>
+<h2>Configure Fastlane for Android</h2>
+<h2>Configure Gitlab</h2>
+<pre><code></code></pre>
+<h2>Wrapping up</h2>
+<p>When used with Gitlab CI, Fastlane can be a powerful tool to automate the delivery of your React-Native app to the stores, but one should note the setup process is not straightforward, whether it's the local configuration or the remote operations. Hopefully you can kickstart your own easily with my trials and errors.</p>
+<p>I wish there is a better tool that is more modern and more comprehensive than fastlane, as its language itself (ruby) is not familiar to a regular React-Native developer.</p>
+<h2>Inspirations and references</h2>
+<ul>
+<li></li>
+</ul>

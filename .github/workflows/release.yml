@@ -44,31 +44,31 @@ jobs:
           package-manager: yarn
           # working-directory: web/themes/custom/my-custom-theme
 
-  # quality:
-  #   name: Quality 🐳
-  #   runs-on: ${{ matrix.os }}
-  #   needs: [check-code-analysis,check-lock-file-version]
-  #   strategy:
-  #     matrix:
-  #       # node-version: [10.x, 12.x, 14.x, 15.x]
-  #       node-version: [16.x]
-  #       # os: [ubuntu-latest, windows-latest]
-  #       os: [ubuntu-latest]
-  #       # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@v3
-  #   - uses: mskelton/setup-yarn@v1
-  #   - name: Install dependencies
-  #     run: yarn --frozen-lockfile --ignore-engines
-  #   # - run: yarn test
+  quality:
+    name: Quality 🐳
+    runs-on: ${{ matrix.os }}
+    needs: [check-code-analysis,check-lock-file-version]
+    strategy:
+      matrix:
+        # node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [16.x]
+        # os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup yarn
+      uses: mskelton/setup-yarn@v1
+    - name: Install dependencies
+      run: yarn --frozen-lockfile --ignore-engines
+    # - run: yarn test
 
   publish:
     name: Publish 🚀
     runs-on: ubuntu-latest
     # if: ${{ github.ref == 'refs/heads/main' }}
-    # needs: [quality,check-code-analysis,check-lock-file-version]
-    needs: [check-code-analysis,check-lock-file-version]
+    needs: [quality,check-code-analysis,check-lock-file-version]
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues

@@ -92,6 +92,7 @@
     "minio": "^7.1.4",
     "nanoid": "^5.0.7",
     "patch-package": "^8.0.0",
+    "phantomjs": "^2.1.7",
     "rehype-parse": "^9.0.0",
     "rehype-remark": "^10.0.0",
     "rehype-stringify": "^10.0.0",

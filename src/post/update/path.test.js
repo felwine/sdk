@@ -1,6 +1,6 @@
 
 
-describe.skip('project', () => {
+describe('project', () => {
   it('updates to medium and dev.to platforms', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)

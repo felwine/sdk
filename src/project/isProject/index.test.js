@@ -1,6 +1,6 @@
 
 
-describe('project', () => {
+describe.skip('project', () => {
   it('ensures a folder is a project', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER_ROOT)

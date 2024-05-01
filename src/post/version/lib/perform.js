@@ -1,7 +1,6 @@
 import markdownToLexer from '../../../lib/remark/markdownToLexer.js'
 import mdastToHTML from '../../../lib/remark/mdastToHTML.js'
 import mdastToMarkdown from '../../../lib/remark/mdastToMarkdown.js'
-import buildMermaid from './mermaid/index.js'
 import reset from './reset.js'
 import updatePost from './updatePost.js'
 
@@ -43,22 +42,22 @@ export default async (props) => {
 const perform = async (props) => {
   const { child, path } = props
   let _child = { ...child }
-  switch (_child.type) {
-    case 'code': {
-      switch (_child.lang) {
-        case 'mermaid': {
-          _child = await buildMermaid({
-            child: _child,
-            path
-          })
-        } break
-        default:
-          break
-      }
-    } break
-    default:
-      break
-  }
+  // switch (_child.type) {
+  //   case 'code': {
+  //     switch (_child.lang) {
+  //       case 'mermaid': {
+  //         _child = await buildMermaid({
+  //           child: _child,
+  //           path
+  //         })
+  //       } break
+  //       default:
+  //         break
+  //     }
+  //   } break
+  //   default:
+  //     break
+  // }
 
   let _children = []
   if (_child.children) {

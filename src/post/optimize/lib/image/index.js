@@ -12,6 +12,14 @@ export default async ({ child,
   }
 
   const sourceUrl = isRelative(url) ? fsPath.resolve(path, url) : url
+  const extension = fsPath.parse(sourceUrl).ext
+  switch (extension) {
+    case '.svg': {
+      return child
+    }
+    default: break
+  }
+
   const filename = `_${fsPath.parse(sourceUrl).name}.webp`
   const destination = `${path}/assets/${filename}`
 

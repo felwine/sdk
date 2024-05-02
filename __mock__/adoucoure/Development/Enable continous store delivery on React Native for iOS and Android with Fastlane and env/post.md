@@ -1,7 +1,7 @@
 # Enable continuous store delivery on React Native for iOS and Android with Fastlane, Gitlab CI and react-native-config
 
 A brief encounter of the third type.
-Mp en
+This is an attempt.
 
 ```mermaid
 sequenceDiagram

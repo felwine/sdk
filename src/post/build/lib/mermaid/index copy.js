@@ -1,32 +1,33 @@
+// import { convertMarkdownMermaidToImage } from 'markdown-mermaid-exporter'
 import ensureDirectoryExists from '../../../../lib/fs/ensureDirectoryExists.js'
 import { sha256 } from 'js-sha256'
-
-import { generateMermaidSVG } from 'mermaid-svg'
-import fs from 'fs'
 
 export default async ({ child,
   path, }) => {
   try {
 
-    let markdown = child.value
+    let markdown = "```mermaid\n"
+    markdown += child.value
+    markdown += "\n```"
+
     const dataSHA = sha256(JSON.stringify(markdown))
 
-    const filenameRaw = `${dataSHA}`
-    const extension = `svg`
+    const filenameRaw = `${dataSHA}.png`
+    const extension = `png`
     const filename = `${filenameRaw}.${extension}`
     const newUrl = `.build/${filename}`
     const destination = `${path}/${newUrl}`
     await ensureDirectoryExists(destination)
 
-    const value = await generateMermaidSVG(markdown)
-
-
-    await fs.promises.writeFile(destination, value)
+    await convertMarkdownMermaidToImage(
+      markdown,
+      destination)
 
     return {
       ...child,
       type: 'image',
-      url: `.build/${filename}`,
+      // url: newUrl,
+      url: `.build/${filenameRaw}-1.${extension}`
     }
   } catch (e) {
     console.error(e)

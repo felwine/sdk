@@ -1,9 +1,9 @@
-import {
-  MediumClient,
-  PostContentFormat,
-  PostPublishStatus,
-  PostLicense
-} from 'medium-sdk-ts'
+// import {
+//   MediumClient,
+//   PostContentFormat,
+//   PostPublishStatus,
+//   PostLicense
+// } from 'medium-sdk-ts'
 
 export default async ({
   payload,

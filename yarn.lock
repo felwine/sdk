@@ -9692,11 +9692,6 @@ mdx-to-md@^0.3.2:
     react "^18.0.0"
     react-dom "^18.0.0"
 
-medium-sdk-ts@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/medium-sdk-ts/-/medium-sdk-ts-0.2.0.tgz#ab13cf25f29f0cc40c1a7467dfc2111f827c7bc5"
-  integrity sha512-ijYPrTaKulOvtyfx497W1gnpFQhhEeRPDG66D8MYsRTVpc9CVZbaM4Bv+5HVMSrFTTdQNV/9rc8YRLkoeG7NMA==
-
 memory-fs@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/memory-fs/-/memory-fs-0.4.1.tgz#3a9a20b8462523e447cfbc7e8bb80ed667bfc552"

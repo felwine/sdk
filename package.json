@@ -7,7 +7,6 @@
     "name": "adoucoure",
     "email": "yelounak@gmail.com"
   },
-  "moduleResolution": "bundler",
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
@@ -88,7 +87,6 @@
     "mdast-util-to-string": "^4.0.0",
     "mdimg": "^1.0.0",
     "mdx-to-md": "^0.3.2",
-    "medium-sdk-ts": "^0.2.0",
     "mermaid-svg": "^0.0.1",
     "minio": "^7.1.4",
     "nanoid": "^5.0.7",
@@ -134,5 +132,8 @@
     "prettier": "^2.0.4",
     "semantic-release": "^22",
     "size-limit": "^4.10.2"
+  },
+  "d": {
+    "medium-sdk-ts": "^0.2.0"
   }
 }

@@ -23,24 +23,17 @@ export default async ({
       secretKey,
     })
 
-    // Destination object name
     const destinationObject = filename
 
-    // Check if the bucket exists
-    // If it doesn't, create it
     const exists = await minioClient.bucketExists(bucketName)
-    if (exists) {
-      console.log('Bucket ' + bucketName + ' exists.')
-    } else {
+    if (!exists) {
       await minioClient.makeBucket(bucketName, 'us-east-1')
       console.log('Bucket ' + bucketName + ' created in "us-east-1".')
     }
 
-    // Set the object metadata
-    var metaData = {
+    const metaData = {
       // 'Content-Type': contentType,
     }
-
 
     const minioResult = await new Promise((resolve, reject) => {
       minioClient.fPutObject(
@@ -65,4 +58,3 @@ export default async ({
   }
   return null
 }
-

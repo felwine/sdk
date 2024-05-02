@@ -7,6 +7,7 @@
     "name": "adoucoure",
     "email": "yelounak@gmail.com"
   },
+  "moduleResolution": "bundler",
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
@@ -29,7 +30,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=16"
+    "node": ">=10"
   },
   "_engineStrict": false,
   "config": {

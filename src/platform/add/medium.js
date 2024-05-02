@@ -1,6 +1,6 @@
-// import {
-//   MediumClient,
-// } from 'medium-sdk-ts'
+import {
+  MediumClient,
+} from '@felwine/medium-api'
 
 export default async ({
   token

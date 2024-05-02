@@ -1140,6 +1140,11 @@
   resolved "https://registry.yarnpkg.com/@fal-works/esbuild-plugin-global-externals/-/esbuild-plugin-global-externals-2.1.2.tgz#c05ed35ad82df8e6ac616c68b92c2282bd083ba4"
   integrity sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==
 
+"@felwine/medium-api@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@felwine/medium-api/-/medium-api-1.0.0.tgz#d3fb85185697151e3a0e2db27989c079844a5350"
+  integrity sha512-rWnqW52m2NtTB2sId+uutoVgyI2S9RqUL55gCFqo2j1USmJncnR9cL474aIPTuB+R67i2azJuYMWomnCSA2W3g==
+
 "@img/sharp-darwin-arm64@0.33.3":
   version "0.33.3"
   resolved "https://registry.yarnpkg.com/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.33.3.tgz#2bbf676be830c5a9ae7d9294f201c9151535badd"
@@ -9691,6 +9696,9 @@ mdx-to-md@^0.3.2:
     node-html-markdown "^1.2.0"
     react "^18.0.0"
     react-dom "^18.0.0"
+
+"medium-sdk-ts@file:../medium-api":
+  version "0.0.0-development"
 
 memory-fs@^0.4.1:
   version "0.4.1"

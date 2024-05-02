@@ -1,17 +1,14 @@
-// import {
-//   MediumClient,
-//   PostContentFormat,
-//   PostPublishStatus,
-//   PostLicense
-// } from 'medium-sdk-ts'
+import {
+  MediumClient
+} from '@felwine/medium-api'
 
 export default async ({
   auth,
   title,
   content,
-  contentFormat = PostContentFormat.MARKDOWN,
-  publishStatus = PostPublishStatus.DRAFT,
-  license = PostLicense.ALL_RIGHTS_RESERVED,
+  contentFormat = "markdown",
+  publishStatus = "unlisted",
+  license = "all-rights-reserved",
   canonicalUrl,
   tags = [],
 } = {}) => {

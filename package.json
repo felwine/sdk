@@ -88,7 +88,6 @@
     "mdast-util-to-string": "^4.0.0",
     "mdimg": "^1.0.0",
     "mdx-to-md": "^0.3.2",
-    "medium-sdk-ts": "file:../medium-api",
     "mermaid-svg": "^0.0.1",
     "minio": "^7.1.4",
     "nanoid": "^5.0.7",

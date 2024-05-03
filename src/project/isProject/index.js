@@ -16,7 +16,7 @@ export default async (props) => {
     return false
   }
 
-  const isDir = path.isDirectory()
+  const isDir = pathStat.isDirectory()
   if (!isDir) {
     return false
   }

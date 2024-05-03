@@ -29,7 +29,7 @@ export default async ({
 
     await fs.promises.mkdir(folderPath)
     await fs.promises.mkdir(`${folderPath}/assets`)
-    await fs.promises.mkdir(`${folderPath}/artefacts`)
+    // await fs.promises.mkdir(`${folderPath}/artefacts`)
     await fs.promises.mkdir(`${folderPath}/.build`)
 
 

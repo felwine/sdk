@@ -1,6 +1,7 @@
 import fsPath from 'path'
 import fs from 'fs'
 import checkFileExists from '../../../lib/fs/checkFileExists.js'
+import importJSONAsync from '../../../lib/fs/importJSONAsync.js'
 
 export default async ({
   path,

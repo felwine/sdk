@@ -1,6 +1,6 @@
+import checkFileExists from '../fs/checkFileExists.js'
 import fs from 'fs'
 import fsPath from 'path'
-import checkFileExists from '../../lib/fs/checkFileExists'
 
 export default async (props) => {
   const {
@@ -21,6 +21,9 @@ export default async (props) => {
     return false
   }
 
+  const postPath = fsPath.join(path, 'post.md')
   const manifestPath = fsPath.join(path, 'manifest.yaml')
-  return checkFileExists(manifestPath)
+
+  return ((await checkFileExists(postPath))
+    && (await checkFileExists(manifestPath)))
 }

@@ -6,6 +6,7 @@ import importJSONAsync from "../fs/importJSONAsync.js"
 import importYAMLAsync from "../fs/importYAMLAsync.js"
 import markdownToLexer from '../remark/markdownToLexer.js'
 import createActivityIfNeeded from '../../post/lib/activity/createFileIfNeeded.js'
+import isPathEntry from './isPathEntry.js'
 
 const perform = async (props) => {
   const {
@@ -48,9 +49,7 @@ const perform = async (props) => {
       const manifestPath = fsPath.join(folderPath, 'manifest.yaml')
       const activityPath = fsPath.join(folderPath, '.activity.json')
 
-      if (!(await checkFileExists(postPath))
-        || !(await checkFileExists(manifestPath))
-      ) {
+      if (!(await isPathEntry({ path: folderPath }))) {
         return perform({
           ...props,
           path: folderPath

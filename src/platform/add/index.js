@@ -1,25 +1,37 @@
-import * as dotenv from 'dotenv'
-import medium from './medium.js'
-
-dotenv.config()
+import update from '../../project/lib/manifest/update.js'
+import validate from './lib/validate.js'
 
 export default async ({
-  id,
-  params } = {}) => {
-  //console.assert(id)
+  path,
+  platform
+}) => {
 
-  let platform = null
-  switch (id) {
-    case 'medium': {
-      const user = await medium({
-        ...params
-      })
+  try {
+    // const { id, auth: { token } } = platform
 
-      platform = { user }
-    } break
-    default:
-      break
+    const { isValid, error } = await validate(platform)
+    if (!isValid) {
+      return { isValid, error }
+    }
+
+    const platforms = [platform]
+
+    await update({
+      path,
+      data: {
+        platforms: platforms.map(platform => {
+          const a = {
+            ...platform,
+          }
+          delete a.auth
+          return a
+        }),
+      }
+    })
+
+    return { isValid: true, }
+  } catch (e) {
+    // console.error(e)
+    return { isValid: true, error: e }
   }
-
-  return platform
 }

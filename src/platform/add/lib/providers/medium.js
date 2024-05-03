@@ -3,20 +3,25 @@ import {
 } from '@felwine/medium-api'
 
 export default async ({
-  token
+  auth
 } = {}) => {
-  //console.assert(token)
-
   try {
+    const { token } = auth
     const client = new MediumClient(token)
-
     const user = await client.getUser()
-    console.log(`User: ${JSON.stringify(user, null, 2)}`)
-
-    return client
+    return {
+      isValid: true,
+      data: {
+        user
+      }
+    }
   }
   catch (e) {
-    console.error(e)
+    return {
+      isValid: false,
+      error: e
+    }
   }
-  return null
+
+  return false
 }

@@ -9,7 +9,7 @@ export default async _url => {
     const fileUrl = new URL(_url, import.meta.url)
     return fs.promises.readFile(fileUrl, 'utf8')
   } catch (e) {
-    console.log("[Servable]", `importFileAsText → `, e)
+    console.log("[Felwine]", `importFileAsText → `, e)
     return null
   }
 }

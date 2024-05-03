@@ -1,6 +1,6 @@
 import fs from 'fs'
 import fsPath from 'path'
-import checkFileExists from '../../lib/fs/checkFileExists'
+import checkFileExists from '../../lib/fs/checkFileExists.js'
 
 export default async (props) => {
   const {

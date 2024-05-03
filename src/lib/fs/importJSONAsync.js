@@ -10,7 +10,7 @@ export default async _url => {
   const parsedPackageJSON = JSON.parse(await fs.promises.readFile(fileUrl, 'utf8'))
   return parsedPackageJSON
   // } catch (e) {
-  //   console.log("[Servable]", `importJSONAsync → `, e)
+  //   console.log("[Felwine]", `importJSONAsync → `, e)
   //   return null
   // }
 }

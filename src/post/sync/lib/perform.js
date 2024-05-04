@@ -32,8 +32,11 @@ export default async (props) => {
   const results = []
   for (var i in platforms) {
     const platform = platforms[i]
-    let platformInActivity = activity.platforms.find(
-      a => (a && (a.id === platform.id)))
+    let platformInActivity = null
+    if (activity.platforms) {
+      activity.platforms.find(
+        a => (a && (a.id === platform.id)))
+    }
 
     if (!platformInActivity || !platformInActivity.id) {
       platformInActivity = {
@@ -108,7 +111,7 @@ const applicablePlatforms = (props) => {
   const { manifest, settings } = props
 
   let platforms = settings.platforms
-  if (manifest.platforms) {
+  if (manifest.platforms && manifest.platforms.length) {
     platforms = platforms.filter(a =>
       (a && manifest.platforms.filter(b => b.id === a.id).length)
     )

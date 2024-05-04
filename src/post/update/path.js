@@ -5,7 +5,7 @@ import sync from '../sync/entry.js'
 import optimize from '../optimize/entry.js'
 import version from '../version/entry.js'
 import cloudify from '../cloudify/entry.js'
-import contain from '../contain/entry.js'
+// import contain from '../contain/entry.js'
 
 export default async ({
   path,
@@ -32,7 +32,7 @@ export default async ({
       settings
     })
 
-    entry = (await contain({ entry, source: entry.post.optimized, settings })).entry
+    // entry = (await contain({ entry, source: entry.post.optimized, settings })).entry
     await version({})
   }
 

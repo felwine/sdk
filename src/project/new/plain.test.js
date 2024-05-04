@@ -19,8 +19,8 @@ describe.skip('project', () => {
             token: process.env.TEST_DEVTO_TOKEN,
           }
         }],
-        cloud: {
-          type: "minio",
+        clouds: {
+          id: "minio",
           auth: {
             endPoint: process.env.TEST_MINIO_ENDPOINT,
             accessKey: process.env.TEST_MINIO_ACCESS_KEY,

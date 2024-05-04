@@ -21,20 +21,23 @@ export default async ({ child,
   let { sourceUrl, filename } = result
 
 
-  const { cloud } = settings
+  const { clouds } = settings
   let uploadResult = null
-  switch (cloud.type) {
-    case 'minio': {
-      uploadResult = await upload({
-        type: 'minio',
-        sourceUrl,
-        filename,
-        auth: cloud.auth
-      })
-    } break
-    default:
-      break
+  for (var cloud in clouds) {
+    switch (cloud.id) {
+      case 'minio': {
+        uploadResult = await upload({
+          id: cloud.id,
+          sourceUrl,
+          filename,
+          auth: cloud.auth
+        })
+      } break
+      default:
+        break
+    }
   }
+
 
   if (!uploadResult || !uploadResult.url) {
     return child

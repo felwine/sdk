@@ -13,15 +13,15 @@ test.skip('sync to medium platform', async () => {
           token: process.env.TEST_MEDIUM_TOKEN,
         }
       }],
-      cloud: {
-        type: "minio",
+      clouds: [{
+        id: "minio",
         auth: {
           endPoint: process.env.TEST_MINIO_ENDPOINT,
           accessKey: process.env.TEST_MINIO_ACCESS_KEY,
           secretKey: process.env.TEST_MINIO_SECRET,
           bucketName: process.env.TEST_MINIO_BUCKET_NAME
         }
-      }
+      }]
     },
     path,
   })

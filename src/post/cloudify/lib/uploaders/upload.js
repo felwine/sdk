@@ -1,8 +1,8 @@
 import * as uploaders from './index.js'
 
 export default async (props) => {
-  const { type } = props
-  switch (type) {
+  const { id } = props
+  switch (id) {
     case 'picgo': {
       return uploaders.picgo(props)
     }

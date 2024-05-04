@@ -7,10 +7,21 @@ export default async ({
   data,
 }) => {
   try {
-    const existing = await read({ path })
+    let existing = await read({ path })
+    if (!existing) {
+      existing = {}
+    }
+    const _data = data ? data : {}
     let result = {
       ...existing,
-      ...data
+      platforms: [
+        ...(existing.platforms ? existing.platforms : []),
+        ...(data.platforms ? data.platforms : []),
+      ],
+      clouds: [
+        ...(existing.clouds ? existing.clouds : []),
+        ...(data.clouds ? data.clouds : []),
+      ]
     }
 
     const content = YAML.stringify(result)

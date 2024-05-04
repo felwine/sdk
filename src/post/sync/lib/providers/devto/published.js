@@ -1,5 +1,5 @@
 import { Client } from 'devto-nodejs-sdk'
-import clean from './lib/clean.js'
+import preprocess from './lib/preprocess.js'
 // https://developers.forem.com/api/
 export default async ({ payload, platformInActivity }) => {
   const { auth,
@@ -15,7 +15,7 @@ export default async ({ payload, platformInActivity }) => {
       id = platformInActivity.post.id
     }
 
-    let _content = await clean({ content })
+    let _content = await preprocess({ content })
     const { token } = auth
     const client = new Client(token)
     const article = {

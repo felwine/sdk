@@ -1,6 +1,7 @@
 import {
   MediumClient
 } from '@felwine/medium-api'
+import preprocess from './lib/preprocess.js'
 
 export default async ({
   payload,
@@ -29,10 +30,10 @@ export default async ({
     const user = await client.getUser()
 
     const { id: userId, username } = user
-
+    let _content = await preprocess({ content })
     const post = await client.createPost({
       title,
-      content,
+      content: _content,
       userId,
       contentFormat,   // Defaults to `markdown`
       publishStatus,  // Defaults to `draft`

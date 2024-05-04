@@ -1,4 +1,5 @@
 import medium from './providers/medium.js'
+import devto from './providers/devto.js'
 
 export default async ({
   id,
@@ -7,6 +8,11 @@ export default async ({
   switch (id) {
     case 'medium': {
       return medium({
+        auth
+      })
+    }
+    case 'devto': {
+      return devto({
         auth
       })
     }

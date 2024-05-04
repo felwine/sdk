@@ -22,6 +22,4 @@ export default async ({
       error: e
     }
   }
-
-  return false
 }

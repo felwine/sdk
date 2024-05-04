@@ -23,7 +23,8 @@ export default async ({ child,
 
   const { clouds } = settings
   let uploadResult = null
-  for (var cloud in clouds) {
+  for (var i in clouds) {
+    const cloud = clouds[i]
     switch (cloud.id) {
       case 'minio': {
         uploadResult = await upload({

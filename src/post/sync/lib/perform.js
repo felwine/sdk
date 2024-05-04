@@ -34,7 +34,7 @@ export default async (props) => {
     const platform = platforms[i]
     let platformInActivity = null
     if (activity.platforms) {
-      activity.platforms.find(
+      platformInActivity = activity.platforms.find(
         a => (a && (a.id === platform.id)))
     }
 

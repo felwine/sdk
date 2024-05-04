@@ -1,4 +1,5 @@
 import { Client } from 'devto-nodejs-sdk'
+import clean from './lib/clean.js'
 // https://developers.forem.com/api/
 export default async ({ payload, platformInActivity }) => {
   const { auth,
@@ -14,11 +15,12 @@ export default async ({ payload, platformInActivity }) => {
       id = platformInActivity.post.id
     }
 
+    let _content = await clean({ content })
     const { token } = auth
     const client = new Client(token)
     const article = {
       title,
-      bodyMarkdown: content,
+      bodyMarkdown: _content,
       published: true,
       tags: tags.join(',')
     }

@@ -19,13 +19,8 @@ export default async ({
 
 
     let defaultManifest = YAML.parse(`
-      title: ""
       status: draft
       skip: false
-      canonicalUrl: ""
-      createdAt: ""
-      updatedAt: ""
-      nomDePlume: ""
       license: all-rights-reserved
     `)
 

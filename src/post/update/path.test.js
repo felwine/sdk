@@ -13,12 +13,13 @@ describe('project', () => {
             token: process.env.TEST_MEDIUM_TOKEN,
           }
         },
-        {
-          id: 'devto',
-          auth: {
-            token: process.env.TEST_DEVTO_TOKEN,
-          }
-        }],
+          // {
+          //   id: 'devto',
+          //   auth: {
+          //     token: process.env.TEST_DEVTO_TOKEN,
+          //   }
+          // }
+        ],
         clouds: [{
           id: "minio",
           auth: {

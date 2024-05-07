@@ -15,7 +15,9 @@ export default async (props) => {
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(remarkFigureCaption)
+    .use(remarkFigureCaption, {
+      figureClassName: 'image'
+    })
     .use(remarkRehype)
     .use(rehypeStringify)
     .process(content)

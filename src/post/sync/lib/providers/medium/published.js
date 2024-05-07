@@ -8,20 +8,22 @@ export default async ({
   platformInActivity
 }) => {
   if (platformInActivity && platformInActivity.post && platformInActivity.post.id) {
-    return {
-      post: platformInActivity.post
-    }
+    // return {
+    //   post: platformInActivity.post
+    // }
   }
 
   const {
     auth,
     title,
     content,
+    contentHTML,
     contentFormat = "markdown",
     publishStatus = "public",
     license = "all-rights-reserved",
     canonicalUrl,
     tags = [],
+    notifyFollowers = true
   } = payload
 
   try {
@@ -35,11 +37,12 @@ export default async ({
       title,
       content: _content,
       userId,
-      contentFormat,   // Defaults to `markdown`
+      contentFormat: "html",   // Defaults to `markdown`
       publishStatus,  // Defaults to `draft`
       tags,
       canonicalUrl,
       license,
+      notifyFollowers
     })
 
     return {

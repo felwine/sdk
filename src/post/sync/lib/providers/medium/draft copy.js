@@ -23,7 +23,6 @@ export default async ({
     license = "all-rights-reserved",
     canonicalUrl,
     tags = [],
-    notifyFollowers = true
   } = payload
 
   try {
@@ -37,7 +36,7 @@ export default async ({
       title,
       content: _content,
       userId,
-      contentFormat: "html",   // Defaults to `markdown`
+      contentFormat,   // Defaults to `markdown`
       publishStatus,  // Defaults to `draft`
       tags,
       canonicalUrl,

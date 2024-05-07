@@ -27,6 +27,7 @@ export default async ({
     await sync({
       entry,
       source: entry.post.cloud,
+      sourceHTML: entry.post.cloudHTML,
       // data: entry.post.cloud,
       // dataHTML: entry.post.cloudHTML,
       settings

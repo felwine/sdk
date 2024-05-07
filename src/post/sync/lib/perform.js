@@ -11,6 +11,10 @@ export default async (props) => {
     ? props.source
     : (entry.post.cloud ? entry.post.cloud : entry.post.optimized)
 
+  const contentHTML = props.sourceHTML
+    ? props.sourceHTML
+    : (entry.post.cloudHTML ? entry.post.cloudHTML : entry.post.optimized)
+
   if (!content) {
     return { child }
   }
@@ -61,9 +65,11 @@ export default async (props) => {
       license,
       tags,
       content,
+      contentHTML,
       // contentFormat: 'html',
       // publishStatus: 'public',
-      title
+      title,
+      notifyFollowers: settings.notifyFollowers
     }
 
     try {

@@ -1140,10 +1140,10 @@
   resolved "https://registry.yarnpkg.com/@fal-works/esbuild-plugin-global-externals/-/esbuild-plugin-global-externals-2.1.2.tgz#c05ed35ad82df8e6ac616c68b92c2282bd083ba4"
   integrity sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==
 
-"@felwine/medium-api@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@felwine/medium-api/-/medium-api-1.0.0.tgz#d3fb85185697151e3a0e2db27989c079844a5350"
-  integrity sha512-rWnqW52m2NtTB2sId+uutoVgyI2S9RqUL55gCFqo2j1USmJncnR9cL474aIPTuB+R67i2azJuYMWomnCSA2W3g==
+"@felwine/medium-api@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@felwine/medium-api/-/medium-api-1.1.0.tgz#8e07afd8b6a3d4278cbf660b0b608a1c752d464b"
+  integrity sha512-XXrcjJNZetYH/3/qbzap2xipvYlV9+MdcfEt+89kVoR0v5EtEGtAYHMqA/1lOcn1Iphglg+OyP46JR4afLGGxA==
 
 "@img/sharp-darwin-arm64@0.33.3":
   version "0.33.3"
@@ -1571,6 +1571,16 @@
     unist-util-stringify-position "^3.0.0"
     unist-util-visit "^4.0.0"
     vfile "^5.0.0"
+
+"@microflash/remark-figure-caption@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@microflash/remark-figure-caption/-/remark-figure-caption-2.0.2.tgz#56a3ac6302d7a2cc19fe35693b6cdb188d23a467"
+  integrity sha512-idUhZ1HE7eS5no11uEwTAHvWCzbG+2uQHE6NtONjq3zgZU+x/NYbDFnJNScXJA0RD3HbCu8QJ9Pf3CTUBztAmg==
+  dependencies:
+    hast-util-whitespace "^3.0.0"
+    mdast-util-from-markdown "^2.0.0"
+    unist-util-remove "^4.0.0"
+    unist-util-visit "^5.0.0"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -9291,6 +9301,11 @@ markdown-extensions@^1.0.0:
   resolved "https://registry.yarnpkg.com/markdown-extensions/-/markdown-extensions-1.1.1.tgz#fea03b539faeaee9b4ef02a3769b455b189f7fc3"
   integrity sha512-WWC0ZuMzCyDHYCasEGs4IPvLyTGftYwh6wIEOULOF0HXcqZlhwRzrK0w2VUlxWA98xnvb/jszw4ZSkJ6ADpM6Q==
 
+markdown-it-image-figures@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/markdown-it-image-figures/-/markdown-it-image-figures-2.1.1.tgz#fd32a2d0cec60ed8c3916d74fea70d5f9b56e4c7"
+  integrity sha512-mwXSQ2nPeVUzCMIE3HlLvjRioopiqyJLNph0pyx38yf9mpqFDhNGnMpAXF9/A2Xv0oiF2cVyg9xwfF0HNAz05g==
+
 markdown-table@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/markdown-table/-/markdown-table-3.0.3.tgz#e6331d30e493127e031dd385488b5bd326e4a6bd"
@@ -15007,6 +15022,15 @@ unist-util-remove-position@^4.0.0:
   dependencies:
     "@types/unist" "^2.0.0"
     unist-util-visit "^4.0.0"
+
+unist-util-remove@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/unist-util-remove/-/unist-util-remove-4.0.0.tgz#94b7d6bbd24e42d2f841e947ed087be5c82b222e"
+  integrity sha512-b4gokeGId57UVRX/eVKej5gXqGlc9+trkORhFJpu9raqZkZhU0zm8Doi05+HaiBsMEIJowL+2WtQ5ItjsngPXg==
+  dependencies:
+    "@types/unist" "^3.0.0"
+    unist-util-is "^6.0.0"
+    unist-util-visit-parents "^6.0.0"
 
 unist-util-stringify-position@^3.0.0:
   version "3.0.3"

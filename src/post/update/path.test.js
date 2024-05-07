@@ -27,7 +27,8 @@ describe('project', () => {
             secretKey: process.env.TEST_MINIO_SECRET,
             bucketName: process.env.TEST_MINIO_BUCKET_NAME
           }
-        }]
+        },],
+        notifyFollowers: false
       },
       path,
     })

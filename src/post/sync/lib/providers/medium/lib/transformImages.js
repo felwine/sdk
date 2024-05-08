@@ -1,10 +1,4 @@
-import { unified } from "unified";
 
-import remarkParse from "remark-parse";
-import remarkGfm from "remark-gfm";
-import remarkFigureCaption from "@microflash/remark-figure-caption";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
 export default async (props) => {
   const { child, } = props
 

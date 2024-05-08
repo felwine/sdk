@@ -17,11 +17,7 @@ export default async ({
 
     const items = await bunny.listFiles({
       remoteDirectory: '/',
-      recursive: true,
-      excludedFileTypes: ['.md'], // exclude .md files
-      fileFilter: (filepath) => {
-        return !filepath.includes(fileName)
-      }
+      recursive: false
     })
 
     return {

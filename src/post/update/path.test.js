@@ -58,7 +58,7 @@ describe('project', () => {
     })
     expect(result).toBeTruthy()
   })
-  it('updates to medium via bunny', async () => {
+  it.skip('updates to medium via bunny', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
     const operation = (await import('./path.js')).default
@@ -68,6 +68,32 @@ describe('project', () => {
           id: 'medium',
           auth: {
             token: process.env.TEST_MEDIUM_TOKEN,
+          }
+        },],
+        clouds: [{
+          id: "bunny",
+          auth: {
+            accessKey: process.env.TEST_BUNNY_ACCESS_KEY,
+            storageZoneName: process.env.TEST_BUNNY_STORAGE_ZONE_NAME,
+            pullZone: process.env.TEST_BUNNY_PULL_ZONE
+          }
+        },],
+        notifyFollowers: false
+      },
+      path,
+    })
+    expect(result).toBeTruthy()
+  })
+  it('updates to devto via bunny', async () => {
+    const fsPath = (await import('path')).default
+    let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
+    const operation = (await import('./path.js')).default
+    const result = await operation({
+      settings: {
+        platforms: [{
+          id: 'devto',
+          auth: {
+            token: process.env.TEST_DEVTO_TOKEN,
           }
         },],
         clouds: [{

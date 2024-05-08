@@ -77,10 +77,10 @@ cd ios
 
    ```yaml
    global:
-   common:
-     ...
-     ciSecureFiles:
-       enabled: true
+    common:
+      #...
+      ciSecureFiles:
+        enabled: true
    ```
 
 4.

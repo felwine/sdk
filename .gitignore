@@ -24,3 +24,4 @@ package.dist.json
 # dist
 _archive
 .env
+__mock__

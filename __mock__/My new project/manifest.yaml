@@ -20,3 +20,4 @@ clouds:
   - id: minio
   - id: minio
   - id: minio
+  - id: bunny

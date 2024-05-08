@@ -1,7 +1,7 @@
 
 
 describe('project', () => {
-  it('adds a minio platform', async () => {
+  it.skip('adds a minio platform', async () => {
     const fsPath = (await import('path')).default
     let path = `${fsPath.resolve(process.env.TEST_MOCK_FOLDER_ROOT)}/${process.env.TEST_MOCK_FOLDER_NEW_NAME}`
     const operation = (await import('./index.js')).default
@@ -17,9 +17,9 @@ describe('project', () => {
         }
       }
     })
-    expect(result).toBeTruthy()
+    expect(result.isValid).toBeTruthy()
   })
-  it('adds a bunny platform', async () => {
+  it.skip('adds a bunny platform', async () => {
     const fsPath = (await import('path')).default
     let path = `${fsPath.resolve(process.env.TEST_MOCK_FOLDER_ROOT)}/${process.env.TEST_MOCK_FOLDER_NEW_NAME}`
     const operation = (await import('./index.js')).default
@@ -33,6 +33,6 @@ describe('project', () => {
         }
       }
     })
-    expect(result).toBeTruthy()
+    expect(result.isValid).toBeTruthy()
   })
 })

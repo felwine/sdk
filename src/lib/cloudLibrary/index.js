@@ -1,4 +1,5 @@
 import * as minio from './minio/index.js'
+import * as bunny from './bunny/index.js'
 
 export default ({
   id,
@@ -7,6 +8,9 @@ export default ({
   switch (id) {
     case 'minio': {
       return minio
+    }
+    case 'bunny': {
+      return bunny
     }
     default:
       break

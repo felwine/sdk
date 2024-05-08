@@ -1,4 +1,4 @@
-import BunnyCDNStorage from 'node-bunny-storage';
+import BunnyCDNStorage from 'node-bunny-storage'
 
 export default async ({
   auth,
@@ -15,7 +15,7 @@ export default async ({
       storageZoneName: storageZoneName
     })
 
-    await bunny.listFiles({
+    const items = await bunny.listFiles({
       remoteDirectory: '/',
       recursive: true,
       excludedFileTypes: ['.md'], // exclude .md files
@@ -25,7 +25,7 @@ export default async ({
     })
 
     return {
-      isValid: exists,
+      isValid: true,
     }
   } catch (e) {
     return {

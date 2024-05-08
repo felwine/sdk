@@ -34,7 +34,6 @@ export default async ({ child,
     })
   }
 
-
   if (!uploadResult || !uploadResult.url) {
     return child
   }

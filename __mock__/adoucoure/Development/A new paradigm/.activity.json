@@ -4,23 +4,23 @@
   "platforms": [
     {
       "id": "medium",
-      "sha": "3dc4a1b62654ab5f86f888d36414d73eb5bfbd29461312d796c40c775417744a",
+      "sha": "3af07f90fd8198f8bd8aee23b6b1213a37459678415373aed549d5156bfaffae",
       "post": {
-        "id": "a9ebf04c228b",
+        "id": "f991484b29e8",
         "title": "A new paradigm",
         "authorId": "1f2e4d8753ecbe41d0b7222dce14b405c1d06578618e225b0b9932cf767c924aa",
-        "url": "https://medium.com/@adoucoure/a9ebf04c228b",
+        "url": "https://medium.com/@adoucoure/f991484b29e8",
         "canonicalUrl": "",
         "publishStatus": "draft",
         "license": "all-rights-reserved",
         "licenseUrl": "https://policy.medium.com/medium-terms-of-service-9db0094a1e0f",
         "tags": [
-          "react-native",
           "react",
+          "react-native",
           "gitlab"
         ]
       },
-      "updatedAt": "2024-05-08T12:03:47.003Z"
+      "updatedAt": "2024-05-08T15:02:19.750Z"
     }
   ]
 }

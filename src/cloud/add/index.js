@@ -1,13 +1,16 @@
+import adaptSettings from '../../lib/adaptSettings.js'
 import update from '../../project/lib/manifest/update.js'
-import validate from './lib/validate/index.js'
+import validate from './lib/validate.js'
 
 export default async ({
   path,
-  cloud
+  cloud,
+  settings = {}
 }) => {
 
   try {
-    const { isValid, error } = await validate(cloud)
+    adaptSettings({ settings })
+    const { isValid, error } = await validate({ cloud, settings })
     if (!isValid) {
       return { isValid, error }
     }

@@ -1,5 +1,5 @@
-import markdownToLexer from "../../../../../../lib/remark/markdownToLexer.js"
-import mdastToMarkdown from "../../../../../../lib/remark/mdastToMarkdown.js"
+import markdownToLexer from "../../../../remark/markdownToLexer.js"
+import mdastToMarkdown from "../../../../remark/mdastToMarkdown.js"
 import removeTitle from "./removeTitle.js"
 
 export default async (props) => {

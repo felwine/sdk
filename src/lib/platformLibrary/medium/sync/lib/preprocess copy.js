@@ -1,5 +1,5 @@
-import markdownToLexer from "../../../../../../lib/remark/markdownToLexer.js"
-import mdastToMarkdown from "../../../../../../lib/remark/mdastToMarkdown.js"
+import markdownToLexer from "../../../../../lib/remark/markdownToLexer.js"
+import mdastToMarkdown from "../../../../../lib/remark/mdastToMarkdown.js"
 import transformImages from "./transformImages.js"
 
 import { unified } from "unified"

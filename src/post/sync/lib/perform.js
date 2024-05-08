@@ -73,8 +73,8 @@ export default async (props) => {
     }
 
     try {
-      const operationPath = `./providers/${platform.id}/${targetStatus}.js`
-      const operation = (await import(operationPath)).default
+      const platformLibrary = settings.platformLibrary({ id: platform.id })
+      const operation = platformLibrary.sync[targetStatus]
       result = await operation({ payload, platformInActivity })
       results.push(result)
     } catch (e) {

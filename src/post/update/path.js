@@ -5,12 +5,14 @@ import sync from '../sync/entry.js'
 import optimize from '../optimize/entry.js'
 import version from '../version/entry.js'
 import cloudify from '../cloudify/entry.js'
+import adaptSettings from '../../lib/adaptSettings.js'
 // import contain from '../contain/entry.js'
 
 export default async ({
   path,
   settings
 }) => {
+  adaptSettings({ settings })
   let entries = await getEntries({
     path,
     settings

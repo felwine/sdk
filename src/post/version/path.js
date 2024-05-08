@@ -1,10 +1,12 @@
 import perform from './lib/perform.js'
 import getEntries from '../../lib/entries/getAtPath.js'
+import adaptSettings from '../../lib/adaptSettings.js'
 
 export default async ({
   path,
   settings
 }) => {
+  adaptSettings({ settings })
   let entries = await getEntries({
     path,
   })

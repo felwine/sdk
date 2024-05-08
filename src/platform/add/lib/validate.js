@@ -1,27 +1,16 @@
-import medium from './providers/medium.js'
-import devto from './providers/devto.js'
 
-export default async ({
-  id,
-  auth } = {}) => {
+export default async ({ platform, settings }) => {
+  const {
+    id,
+    auth } = platform
 
-  switch (id) {
-    case 'medium': {
-      return medium({
-        auth
-      })
+  const platformLibrary = settings.platformLibrary({ id })
+  if (!platformLibrary) {
+    return {
+      isValid: false,
+      error: new Error('Platform not supported.')
     }
-    case 'devto': {
-      return devto({
-        auth
-      })
-    }
-    default:
-      break
   }
 
-  return {
-    isValid: false,
-    error: new Error('Platform not supported.')
-  }
+  return platformLibrary.isValid({ auth })
 }

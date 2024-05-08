@@ -1,15 +1,19 @@
+import adaptSettings from '../../lib/adaptSettings.js'
 import update from '../../project/lib/manifest/update.js'
 import validate from './lib/validate.js'
 
 export default async ({
   path,
-  platform
+  platform,
+  settings = {}
 }) => {
 
   try {
     // const { id, auth: { token } } = platform
 
-    const { isValid, error } = await validate(platform)
+    adaptSettings({ settings })
+    const { isValid, error } = await validate({ platform, settings })
+
     if (!isValid) {
       return { isValid, error }
     }

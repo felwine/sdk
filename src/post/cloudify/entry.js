@@ -1,3 +1,4 @@
+import adaptSettings from '../../lib/adaptSettings.js'
 import perform from './lib/perform.js'
 
 export default async ({
@@ -5,5 +6,6 @@ export default async ({
   settings,
   source
 }) => {
+  adaptSettings({ settings })
   return perform({ entry, settings, source })
 }

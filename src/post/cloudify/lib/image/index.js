@@ -3,7 +3,7 @@ import downloadImage from 'image-downloader'
 import isLocal from 'is-local'
 import isRelative from 'is-relative'
 
-import upload from '../uploaders/upload.js'
+import upload from '../upload.js'
 
 export default async ({ child,
   path,
@@ -25,18 +25,13 @@ export default async ({ child,
   let uploadResult = null
   for (var i in clouds) {
     const cloud = clouds[i]
-    switch (cloud.id) {
-      case 'minio': {
-        uploadResult = await upload({
-          id: cloud.id,
-          sourceUrl,
-          filename,
-          auth: cloud.auth
-        })
-      } break
-      default:
-        break
-    }
+    uploadResult = await upload({
+      id: cloud.id,
+      sourceUrl,
+      filename,
+      auth: cloud.auth,
+      settings
+    })
   }
 
 

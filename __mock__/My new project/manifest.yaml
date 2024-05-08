@@ -11,3 +11,12 @@ author:
 platforms:
   - id: medium
   - id: devto
+  - id: medium
+  - id: medium
+  - id: medium
+  - id: medium
+  - id: medium
+clouds:
+  - id: minio
+  - id: minio
+  - id: minio

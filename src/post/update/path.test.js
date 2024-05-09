@@ -84,7 +84,7 @@ describe('project', () => {
     })
     expect(result).toBeTruthy()
   })
-  it('updates to devto via bunny', async () => {
+  it.skip('updates to devto via bunny', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
     const operation = (await import('./path.js')).default

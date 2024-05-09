@@ -107,6 +107,7 @@
     "sharp": "^0.33.3",
     "strip-markdown": "^6.0.0",
     "tiny-parse-argv": "^2.4.0",
+    "twitter": "^1.7.1",
     "underscore": "^1.13.6",
     "unified": "^11.0.4",
     "upload-to-bunny": "^1.3.0",

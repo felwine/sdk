@@ -29,7 +29,7 @@ export default async (props) => {
   })
 
   let md = await mdastToMarkdown({ mdast })
-  let html = await mdastToHTML({ mdast })
+  let html = mdastToHTML({ mdast })
 
   await updatePost({
     path,

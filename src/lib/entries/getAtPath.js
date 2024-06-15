@@ -104,7 +104,7 @@ const perform = async (props) => {
       }
 
       if (await checkFileExists(activityPath)) {
-        activity = await importJSONAsync(activityPath, 'utf8')
+        activity = await importJSONAsync(activityPath)
       }
 
       return [{

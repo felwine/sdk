@@ -110,4 +110,34 @@ describe('project', () => {
     })
     expect(result).toBeTruthy()
   })
+  it('updates to devto via bunny', async () => {
+    const fsPath = (await import('path')).default
+    let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
+    const operation = (await import('./path.js')).default
+    const result = await operation({
+      settings: {
+        platforms: [{
+          id: 'custom',
+          auth: {
+            token: process.env.TEST_CUSTOM_TOKEN,
+            endPoint: process.env.TEST_CUSTOM_ENDPOINT,
+          }
+        },],
+        clouds: [{
+          id: "bunny",
+          auth: {
+            accessKey: process.env.TEST_BUNNY_ACCESS_KEY,
+            storageZoneName: process.env.TEST_BUNNY_STORAGE_ZONE_NAME,
+            pullZone: process.env.TEST_BUNNY_PULL_ZONE
+          }
+        },],
+        notifyFollowers: false
+      },
+      path,
+    })
+    expect(result).toBeTruthy()
+  })
 })
+
+
+

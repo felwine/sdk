@@ -16,6 +16,9 @@ platforms:
   - id: medium
   - id: medium
   - id: medium
+  - id: medium
+  - id: medium
+  - id: custom
 clouds:
   - id: minio
   - id: minio

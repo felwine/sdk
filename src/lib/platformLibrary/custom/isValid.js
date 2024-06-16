@@ -1,11 +1,11 @@
 import axios from "axios"
 
 export default async ({
-  auth
+  platform
 } = {}) => {
   try {
+    const { auth, endPoint } = platform
     const {
-      endPoint,
       token: accessKey,
     } = auth
 

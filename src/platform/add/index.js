@@ -27,7 +27,9 @@ export default async ({
           const a = {
             ...platform,
           }
-          delete a.auth
+          if (!settings.saveSensitivePlatform) {
+            delete a.auth
+          }
           return a
         }),
       }

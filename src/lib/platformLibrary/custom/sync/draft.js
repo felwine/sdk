@@ -11,7 +11,8 @@ export default async ({
   }
 
   const {
-    auth,
+    platform,
+
     title,
     content,
     contentHTML,
@@ -25,9 +26,8 @@ export default async ({
 
   try {
     let _content = await preprocess({ content })
-
+    const { auth, endPoint } = platform
     const {
-      endPoint,
       token: accessKey,
     } = auth
 

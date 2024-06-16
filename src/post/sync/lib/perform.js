@@ -62,6 +62,7 @@ export default async (props) => {
     let result = null
     const payload = {
       auth: platform.auth,
+      platform,
       license,
       tags,
       content,

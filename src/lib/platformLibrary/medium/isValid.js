@@ -3,9 +3,10 @@ import {
 } from '@felwine/medium-api'
 
 export default async ({
-  auth
+  platform
 } = {}) => {
   try {
+    const { auth, } = platform
     const { token } = auth
     const client = new MediumClient(token)
     const user = await client.getUser()

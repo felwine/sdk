@@ -13,7 +13,7 @@ export default async ({
 
 
   const {
-    auth,
+    platform,
     title,
     content,
     contentHTML,
@@ -26,8 +26,8 @@ export default async ({
   } = payload
 
   try {
+    const { auth, endPoint } = platform
     const {
-      endPoint,
       token: accessKey,
     } = auth
 

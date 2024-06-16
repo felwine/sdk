@@ -1,7 +1,10 @@
 import { Client } from 'devto-nodejs-sdk'
 
-export default async ({ auth }) => {
+export default async ({
+  platform
+} = {}) => {
   try {
+    const { auth, } = platform
     const { token } = auth
     const client = new Client(token)
     const listArticlesQuery = {

@@ -2,7 +2,7 @@
 export default async ({ platform, settings }) => {
   const {
     id,
-    auth } = platform
+  } = platform
 
   const platformLibrary = settings.platformLibrary({ id })
   if (!platformLibrary) {
@@ -12,5 +12,5 @@ export default async ({ platform, settings }) => {
     }
   }
 
-  return platformLibrary.isValid({ auth })
+  return platformLibrary.isValid({ platform })
 }

@@ -57,7 +57,7 @@ export default async ({
     })
 
     return {
-      post,
+      post: post.data,
       status: "published",
     }
 

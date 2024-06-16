@@ -24,6 +24,16 @@ export default async ({
       ...content,
     }
 
+    //CLEAN
+    if (_content.platforms) {
+      _content.platforms = _content.platforms.map(platform => {
+        if (!platform.error) {
+          return platform
+        }
+        delete platform.error.config
+        return platform
+      })
+    }
     await fs.promises.writeFile(filePath, JSON.stringify(_content, null, 2))
     return true
   } catch (e) {

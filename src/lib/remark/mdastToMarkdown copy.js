@@ -1,25 +1,9 @@
-// import { toMarkdown } from 'mdast-util-to-markdown'
-
-// export default async ({
-//   mdast,
-// } = {}) => {
-
-
-//   const data = toMarkdown(mdast)
-
-//   return data
-// }
-
-
-
 import { unified } from 'unified'
 import { toHast } from 'mdast-util-to-hast'
 import { toHtml } from 'hast-util-to-html'
 import rehypeParse from 'rehype-parse'
 import rehypeRemark from 'rehype-remark'
 import remarkStringify from 'remark-stringify'
-// import remarkDirective from 'remark-directive'
-// import remarkDirectiveRehype from 'remark-directive-rehype'
 
 export default async ({
   mdast,
@@ -30,9 +14,19 @@ export default async ({
 
   const file = await unified()
     .use(rehypeParse)
-    .use(rehypeRemark)
-    // .use(remarkDirective)
-    // .use(remarkDirectiveRehype)
+    .use(rehypeRemark, {
+      handlers: {
+        definition: (state, node) => {
+          console.log(state)
+        },
+        svg: (state, node) => {
+          /** @type {Html} */
+          const result = { type: 'html', value: toHtml(node) }
+          state.patch(node, result)
+          return result
+        }
+      }
+    })
     .use(remarkStringify)
     .process(html)
 

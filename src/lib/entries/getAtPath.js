@@ -7,6 +7,7 @@ import importYAMLAsync from "../fs/importYAMLAsync.js"
 import markdownToLexer from '../remark/markdownToLexer.js'
 import createActivityIfNeeded from '../../post/lib/activity/createFileIfNeeded.js'
 import isPathEntry from './isPathEntry.js'
+import { nanoid } from 'nanoid'
 
 const perform = async (props) => {
   const {
@@ -48,6 +49,7 @@ const perform = async (props) => {
       const postCloudPath = fsPath.join(folderPath, '.post.cloud.md')
       const manifestPath = fsPath.join(folderPath, 'manifest.yaml')
       const activityPath = fsPath.join(folderPath, '.activity.json')
+      let thumbnailPath = fsPath.join(folderPath, 'thumbnail.png')
 
       if (!(await isPathEntry({ path: folderPath }))) {
         return perform({
@@ -64,7 +66,7 @@ const perform = async (props) => {
       })
 
       const manifest = await importYAMLAsync(manifestPath)
-      if (manifest.skip) {
+      if (!manifest.sync) {
         return null
       }
 
@@ -76,7 +78,7 @@ const perform = async (props) => {
       let postBuiltMdast = null
       let excerpt = null
       let activity = null
-
+      let thumbnail
       if (await checkFileExists(postConsolidatedPath)) {
         postConsolidated = await fs.promises.readFile(postConsolidatedPath, 'utf8')
         postConsolidatedMdast = markdownToLexer({
@@ -107,7 +109,44 @@ const perform = async (props) => {
         activity = await importJSONAsync(activityPath)
       }
 
+      if (await checkFileExists(thumbnailPath)) {
+        thumbnail = await fs.promises.readFile(thumbnailPath, 'utf8')
+      }
+      if (!thumbnail) {
+        thumbnailPath = fsPath.join(folderPath, 'thumbnail.jpg')
+        if (await checkFileExists(thumbnailPath)) {
+          thumbnail = await fs.promises.readFile(thumbnailPath, 'utf8')
+        }
+      }
+      if (!thumbnail) {
+        thumbnailPath = fsPath.join(folderPath, 'thumbnail.jpeg')
+        if (await checkFileExists(thumbnailPath)) {
+          thumbnail = await fs.promises.readFile(thumbnailPath, 'utf8')
+        }
+      }
+      if (!thumbnail) {
+        thumbnailPath = fsPath.join(folderPath, 'thumbnail.webp')
+        if (await checkFileExists(thumbnailPath)) {
+          thumbnail = await fs.promises.readFile(thumbnailPath, 'utf8')
+        }
+      }
+      if (!thumbnail) {
+        thumbnailPath = null
+      }
+
+      let id
+      if (manifest) {
+        id = manifest.id
+      }
+      if (!id) {
+        id = nanoid()
+        if (manifest) {
+          manifest.id = id
+        }
+      }
+
       return [{
+        id,
         path: folderPath,
         excerpt,
         post,
@@ -120,6 +159,8 @@ const perform = async (props) => {
         postOptimized,
         manifest,
         activity,
+        thumbnailPath,
+        thumbnail,
         post: {
           source: post,
           mdast: postMdast,

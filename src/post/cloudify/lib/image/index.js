@@ -7,7 +7,7 @@ import upload from '../upload.js'
 
 export default async ({ child,
   path,
-  settings }) => {
+  settings, entry }) => {
   const { url } = child
 
   let result
@@ -28,7 +28,7 @@ export default async ({ child,
     uploadResult = await upload({
       id: cloud.id,
       sourceUrl,
-      filename,
+      filename: `${entry.id}/${filename}`,
       auth: cloud.auth,
       settings
     })

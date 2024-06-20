@@ -2,6 +2,7 @@ import markdownToLexer from '../../../lib/remark/markdownToLexer.js'
 import mdastToHTML from '../../../lib/remark/mdastToHTML.js'
 import mdastToMarkdown from '../../../lib/remark/mdastToMarkdown.js'
 import consolidateImage from './image/index.js'
+import thumbnail from './image/thumbnail.js'
 import reset from './reset.js'
 import updatePost from './updatePost.js'
 
@@ -32,6 +33,11 @@ export default async (props) => {
     path,
     md,
     html
+  })
+
+  await thumbnail({
+    thumbnailPath: entry.thumbnailPath,
+    path
   })
 
   return {

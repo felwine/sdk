@@ -63,7 +63,7 @@ const perform = async (props) => {
       })
 
       const manifest = await importYAMLAsync(manifestPath)
-      if (manifest.skip) {
+      if (manifest.sync) {
         return null
       }
 

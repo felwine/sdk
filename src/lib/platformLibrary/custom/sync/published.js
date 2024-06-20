@@ -22,7 +22,18 @@ export default async ({
     license = "all-rights-reserved",
     canonicalUrl,
     tags = [],
-    notifyFollowers = true
+    notifyFollowers = true,
+    thumbnailUrl,
+    rubric,
+    excerpt,
+    disciplines,
+    targets,
+    category,
+    subCategory,
+    locale,
+    blocks,
+    bits,
+    attachments
   } = payload
 
   try {
@@ -52,7 +63,17 @@ export default async ({
         canonicalUrl,
         license,
         notifyFollowers,
-        id
+        id,
+        thumbnailUrl,
+        rubric,
+        excerpt,
+        disciplines,
+        targets,
+        category,
+        subCategory,
+        locale,
+        blocks,
+        bits
       }
     })
 
@@ -60,8 +81,6 @@ export default async ({
       post: post.data,
       status: "published",
     }
-
-
   }
   catch (e) {
     console.error(e)

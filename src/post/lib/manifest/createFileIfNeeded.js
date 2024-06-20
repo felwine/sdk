@@ -20,8 +20,10 @@ export default async ({
 
     let defaultManifest = YAML.parse(`
       status: draft
-      skip: false
+      sync: true
       license: all-rights-reserved
+      excerpt:
+      rubric:
     `)
 
     let manifest = {

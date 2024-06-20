@@ -2,6 +2,7 @@ import markdownToLexer from '../../../lib/remark/markdownToLexer.js'
 import mdastToHTML from '../../../lib/remark/mdastToHTML.js'
 import mdastToMarkdown from '../../../lib/remark/mdastToMarkdown.js'
 import consolidateImage from './image/index.js'
+import thumbnail from './image/thumbnail.js'
 import reset from './reset.js'
 import updatePost from './updatePost.js'
 
@@ -24,7 +25,8 @@ export default async (props) => {
   const mdast = await perform({
     child,
     path,
-    settings
+    settings,
+    entry
   })
 
   let md = await mdastToMarkdown({ mdast })
@@ -36,12 +38,20 @@ export default async (props) => {
     html
   })
 
+  const thumbnailUrl = await thumbnail({
+    thumbnailPath: entry.thumbnailPath,
+    path,
+    entry,
+    settings
+  })
+
   return {
     md,
     html,
     mdast,
     entry: {
       ...entry,
+      thumbnailUrl,
       post: {
         ...entry.post,
         cloud: md,
@@ -52,14 +62,15 @@ export default async (props) => {
 }
 
 const perform = async (props) => {
-  const { child, path, settings } = props
+  const { child, path, settings, entry } = props
   let _child = { ...child }
   switch (_child.type) {
     case 'image': {
       _child = await consolidateImage({
         child: _child,
         path,
-        settings
+        settings,
+        entry
       })
     } break
     default:

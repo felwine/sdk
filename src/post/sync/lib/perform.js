@@ -23,7 +23,20 @@ export default async (props) => {
 
   const dataSHA = sha256(JSON.stringify(content))
 
-  const { license, tags, title, status: targetStatus } = entry.manifest
+  const {
+    license,
+    tags,
+    title,
+    rubric,
+    disciplines,
+    targets,
+    category,
+    subCategory,
+    locale,
+    blocks,
+    bits,
+    attachments,
+    status: targetStatus } = entry.manifest
 
 
   let platforms = applicablePlatforms({ settings, manifest })
@@ -70,7 +83,18 @@ export default async (props) => {
       // contentFormat: 'html',
       // publishStatus: 'public',
       title,
-      notifyFollowers: settings.notifyFollowers
+      notifyFollowers: settings.notifyFollowers,
+      thumbnailUrl: entry.thumbnailUrl,
+      rubric,
+      locale,
+      disciplines,
+      targets,
+      category,
+      subCategory,
+      blocks,
+      bits,
+      attachments,
+      excerpt: entry.excerpt ? entry.excerpt : entry.manifest.excerpt
     }
 
     try {

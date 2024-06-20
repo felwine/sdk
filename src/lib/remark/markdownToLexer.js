@@ -1,9 +1,12 @@
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
+// import remarkDirective from 'remark-directive'
 
 export default ({ data } = {}) => {
   const tokens = unified()
     .use(remarkParse, { gfm: true })
+    // .use(remarkDirective)
+
     .parse(data)
 
 

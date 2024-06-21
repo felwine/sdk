@@ -7,9 +7,13 @@ export default async (props) => {
   const { entry, settings } = props
   const { path, activity, manifest } = entry
 
-  const content = props.source
+  let content = props.source
     ? props.source
     : (entry.post.cloud ? entry.post.cloud : entry.post.optimized)
+
+  // if (settings.platforms[0].id === 'custom') {
+  //   content = content.replaceAll('\\[', '[')
+  // }
 
   const contentHTML = props.sourceHTML
     ? props.sourceHTML

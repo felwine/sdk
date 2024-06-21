@@ -137,7 +137,7 @@ describe('project', () => {
     })
     expect(result).toBeTruthy()
   })
-  it('updates to custom via minio', async () => {
+  it.skip('updates to custom via minio', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
     const operation = (await import('./path.js')).default
@@ -148,6 +148,40 @@ describe('project', () => {
           endPoint: process.env.TEST_CUSTOM_ENDPOINT,
           auth: {
             token: process.env.TEST_CUSTOM_TOKEN,
+          }
+        },],
+        clouds: [{
+          id: "minio",
+          auth: {
+            endPoint: process.env.TEST_MINIO_ENDPOINT,
+            accessKey: process.env.TEST_MINIO_ACCESS_KEY,
+            secretKey: process.env.TEST_MINIO_SECRET,
+            bucketName: process.env.TEST_MINIO_BUCKET_NAME
+          }
+        },],
+        notifyFollowers: false
+      },
+      path,
+    })
+    expect(result).toBeTruthy()
+  })
+  it('updates to custom and devto via minio', async () => {
+    const fsPath = (await import('path')).default
+    let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
+    const operation = (await import('./path.js')).default
+    const result = await operation({
+      settings: {
+        platforms: [{
+          id: 'custom',
+          endPoint: process.env.TEST_CUSTOM_ENDPOINT,
+          auth: {
+            token: process.env.TEST_CUSTOM_TOKEN,
+          }
+        },
+        {
+          id: 'devto',
+          auth: {
+            token: process.env.TEST_DEVTO_TOKEN,
           }
         },],
         clouds: [{

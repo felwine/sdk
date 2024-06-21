@@ -7,7 +7,7 @@ import updatePost from './updatePost.js'
 import updateTitle from './updateTitle.js'
 
 export default async (props) => {
-  const { entry } = props
+  const { entry, settings } = props
   const { path, manifest } = entry
   const data = props.source ? props.source : entry.post.source
 
@@ -19,7 +19,8 @@ export default async (props) => {
 
   const mdast = await perform({
     child,
-    path
+    path,
+    settings
   })
 
   await updateTitle({
@@ -30,6 +31,8 @@ export default async (props) => {
 
   let md = await mdastToMarkdown({ mdast })
   let html = mdastToHTML({ mdast })
+
+
 
   await updatePost({
     path,
@@ -53,7 +56,7 @@ export default async (props) => {
 }
 
 const perform = async (props) => {
-  const { child, path } = props
+  const { child, path, settings } = props
   let _child = { ...child }
   switch (_child.type) {
     case 'image': {
@@ -62,6 +65,40 @@ const perform = async (props) => {
         path
       })
     } break
+    // case 'paragraph': {
+    //   if (settings.platforms[0].id === 'custom') {
+    //     return _child
+    //   }
+
+    //   if (_child.children &&
+    //     _child.children[0]
+    //     && _child.children[0].value
+    //     && _child.children[0].value.indexOf('::') === 0) {
+    //     return null
+    //   }
+
+    //   return _child
+    // } break
+    // case 'leafDirective': {
+    //   if (settings.platforms[0].id !== 'custom') {
+    //     return null
+    //   }
+    //   const __child = {
+    //     ..._child,
+    //     type: 'paragraph',
+    //     children: [
+    //       ..._child.children,
+    //     ]
+    //   }
+    //   __child.children[0] = {
+    //     ...__child.children[0],
+    //     type: 'text',
+    //     value: `::${_child.name}[${__child.children[0].value}]`
+    //   }
+    //   return __child
+
+
+    // } break
     default:
       break
   }

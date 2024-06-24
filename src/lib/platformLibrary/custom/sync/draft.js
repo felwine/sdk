@@ -27,6 +27,7 @@ export default async ({
     excerpt,
     disciplines,
     targets,
+    recap,
     category,
     subCategory,
     locale,
@@ -39,7 +40,8 @@ export default async ({
     let _content = await preprocess({ content })
     const { auth, endPoint } = platform
     const {
-      token: accessKey,
+      accessKey,
+      secretKey
     } = auth
 
     const url = `${endPoint}/draft`
@@ -50,6 +52,7 @@ export default async ({
       headers: {
         'content-type': 'application/json',
         AccessKey: accessKey,
+        SecretKey: secretKey,
         'Accept': 'application/json',
       },
       data: {
@@ -68,6 +71,7 @@ export default async ({
         excerpt,
         disciplines,
         targets,
+        recap,
         category,
         subCategory,
         locale,

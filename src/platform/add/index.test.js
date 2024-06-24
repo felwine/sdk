@@ -38,7 +38,8 @@ describe.skip('project', () => {
       platform: {
         id: 'custom',
         auth: {
-          token: process.env.TEST_CUSTOM_TOKEN,
+          accessKey: process.env.TEST_CUSTOM_ACCESS_KEY,
+          secretKey: process.env.TEST_CUSTOM_SECRET_KEY,
           endPoint: process.env.TEST_CUSTOM_ENDPOINT,
         }
       }

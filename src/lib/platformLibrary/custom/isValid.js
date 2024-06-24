@@ -6,7 +6,8 @@ export default async ({
   try {
     const { auth, endPoint } = platform
     const {
-      token: accessKey,
+      accessKey,
+      secretKey
     } = auth
 
     const url = `${endPoint}/healthcheck`
@@ -16,6 +17,7 @@ export default async ({
       url,
       headers: {
         AccessKey: accessKey,
+        SecretKey: secretKey,
         'Accept': 'application/json',
       },
     })

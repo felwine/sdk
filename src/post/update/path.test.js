@@ -120,7 +120,7 @@ describe('project', () => {
           id: 'custom',
           endPoint: process.env.TEST_CUSTOM_ENDPOINT,
           auth: {
-            token: process.env.TEST_CUSTOM_TOKEN,
+            token: process.env.TEST_CUSTOM_ACCESS_KEY,
           }
         },],
         clouds: [{
@@ -147,7 +147,8 @@ describe('project', () => {
           id: 'custom',
           endPoint: process.env.TEST_CUSTOM_ENDPOINT,
           auth: {
-            token: process.env.TEST_CUSTOM_TOKEN,
+            accessKey: process.env.TEST_CUSTOM_ACCESS_KEY,
+            secretKey: process.env.TEST_CUSTOM_SECRET_KEY,
           }
         },],
         clouds: [{
@@ -175,7 +176,8 @@ describe('project', () => {
           id: 'custom',
           endPoint: process.env.TEST_CUSTOM_ENDPOINT,
           auth: {
-            token: process.env.TEST_CUSTOM_TOKEN,
+            accessKey: process.env.TEST_CUSTOM_ACCESS_KEY,
+            secretKey: process.env.TEST_CUSTOM_SECRET_KEY,
           }
         },
         {

@@ -18,7 +18,7 @@ export default async ({
     content,
     contentHTML,
     contentFormat = "markdown",
-    publishStatus = "public",
+    publishStatus = "published",
     license = "all-rights-reserved",
     canonicalUrl,
     tags = [],

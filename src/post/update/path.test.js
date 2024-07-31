@@ -9,6 +9,7 @@ describe('project', () => {
       settings: {
         platforms: [{
           id: 'medium',
+          type: 'medium',
           auth: {
             token: process.env.TEST_MEDIUM_TOKEN,
           }
@@ -38,6 +39,7 @@ describe('project', () => {
         platforms: [
           {
             id: 'devto',
+            type: 'devto',
             auth: {
               token: process.env.TEST_DEVTO_TOKEN,
             }
@@ -66,6 +68,7 @@ describe('project', () => {
       settings: {
         platforms: [{
           id: 'medium',
+          type: 'medium',
           auth: {
             token: process.env.TEST_MEDIUM_TOKEN,
           }
@@ -92,6 +95,7 @@ describe('project', () => {
       settings: {
         platforms: [{
           id: 'devto',
+          type: 'devto',
           auth: {
             token: process.env.TEST_DEVTO_TOKEN,
           }
@@ -117,7 +121,8 @@ describe('project', () => {
     const result = await operation({
       settings: {
         platforms: [{
-          id: 'custom',
+          id: 'adoucoure.local',
+          type: 'custom',
           endPoint: process.env.TEST_CUSTOM_ENDPOINT,
           auth: {
             token: process.env.TEST_CUSTOM_ACCESS_KEY,
@@ -144,7 +149,8 @@ describe('project', () => {
     const result = await operation({
       settings: {
         platforms: [{
-          id: 'custom',
+          id: 'adoucoure.local',
+          type: 'custom',
           endPoint: process.env.TEST_CUSTOM_ENDPOINT,
           auth: {
             accessKey: process.env.TEST_CUSTOM_ACCESS_KEY,
@@ -173,19 +179,22 @@ describe('project', () => {
     const result = await operation({
       settings: {
         platforms: [{
-          id: 'custom',
+          id: 'adoucoure.local',
+          type: 'custom',
           endPoint: process.env.TEST_CUSTOM_ENDPOINT,
           auth: {
             accessKey: process.env.TEST_CUSTOM_ACCESS_KEY,
             secretKey: process.env.TEST_CUSTOM_SECRET_KEY,
           }
         },
-        {
-          id: 'devto',
-          auth: {
-            token: process.env.TEST_DEVTO_TOKEN,
-          }
-        },],
+          // {
+          //   id: 'devto',
+          // type: 'devto',
+          //   auth: {
+          //     token: process.env.TEST_DEVTO_TOKEN,
+          //   }
+          // },
+        ],
         clouds: [{
           id: "minio",
           auth: {

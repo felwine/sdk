@@ -110,11 +110,11 @@ export default async (props) => {
       blocks,
       bits,
       attachments,
-      excerpt: entry.excerpt ? entry.excerpt : entry.manifest.excerpt
+      excerpt: entry.excerpt ? entry.excerpt : entry.manifest.excerpt,
     }
 
     try {
-      const platformLibrary = settings.platformLibrary({ id: platform.id })
+      const platformLibrary = settings.platformLibrary({ ...platform })
       const operation = platformLibrary.sync[targetStatus]
       result = await operation({ payload, platformInActivity })
       results.push(result)

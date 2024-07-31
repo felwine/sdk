@@ -9,12 +9,14 @@ describe.skip('project', () => {
       settings: {
         platforms: [{
           id: 'medium',
+          type: 'medium',
           auth: {
             token: process.env.TEST_MEDIUM_TOKEN,
           }
         },
         {
           id: 'devto',
+          type: 'devto',
           auth: {
             token: process.env.TEST_DEVTO_TOKEN,
           }

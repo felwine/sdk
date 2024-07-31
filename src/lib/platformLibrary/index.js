@@ -4,9 +4,10 @@ import * as custom from './custom/index.js'
 
 export default ({
   id,
+  type
 } = {}) => {
 
-  switch (id) {
+  switch (type) {
     case 'medium': {
       return medium
     }

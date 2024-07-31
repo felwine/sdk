@@ -7,6 +7,7 @@ describe.skip('project', () => {
       path,
       platform: {
         id: 'medium',
+        type: 'medium',
         auth: {
           token: process.env.TEST_MEDIUM_TOKEN,
         }
@@ -22,6 +23,7 @@ describe.skip('project', () => {
       path,
       platform: {
         id: 'medium',
+        type: 'medium',
         auth: {
           token: process.env.TEST_MEDIUM_TOKEN,
         }
@@ -36,7 +38,8 @@ describe.skip('project', () => {
     const result = await operation({
       path,
       platform: {
-        id: 'custom',
+        id: 'adoucoure.local',
+        type: 'custom',
         auth: {
           accessKey: process.env.TEST_CUSTOM_ACCESS_KEY,
           secretKey: process.env.TEST_CUSTOM_SECRET_KEY,

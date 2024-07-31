@@ -7,6 +7,7 @@ test.skip('creates a new post', async () => {
   const result = await operation({
     platforms: [{
       id: 'medium',
+      type: 'medium',
     }],
     path,
     title: "Sample test post",

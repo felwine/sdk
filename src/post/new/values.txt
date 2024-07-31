@@ -1,0 +1,22 @@
+- tags
+    - gitlab
+    - react-native
+- categories
+- disciplines
+    - softwareengineering
+    - programmanagement
+    - engineeringmanagement
+- rubric
+    - star stuff
+- bits
+- category
+    - review
+    - guide
+    - opinion
+    - event
+    - publication
+    - bit
+    - cheatsheet
+- subcategory
+    - book
+    - video

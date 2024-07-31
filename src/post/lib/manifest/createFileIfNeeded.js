@@ -24,6 +24,16 @@ export default async ({
       license: all-rights-reserved
       excerpt:
       rubric:
+      mediaTypes:
+        - post
+      incorrectness: 0
+      bits:
+      recap:
+      thumbnail:
+        credit:
+      locale:
+      category:
+      layout:
     `)
 
     let manifest = {

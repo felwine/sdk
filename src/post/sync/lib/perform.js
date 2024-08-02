@@ -74,7 +74,9 @@ export default async (props) => {
     if (platformInActivity.status === targetStatus
       && platformInActivity.sha === dataSHA) {
       platformsInActivity.push(platformInActivity)
-      continue
+      if (!settings.forceSync) {
+        continue
+      }
     }
 
     platformInActivity = {

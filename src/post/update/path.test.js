@@ -178,6 +178,7 @@ describe('project', () => {
     const operation = (await import('./path.js')).default
     const result = await operation({
       settings: {
+        forceSync: true,
         platforms: [{
           id: 'adoucoure.local',
           type: 'custom',

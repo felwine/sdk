@@ -91,7 +91,8 @@ export default async ({
     })
 
     return {
-      post: post.data
+      post: post.data,
+      status: "draft",
     }
   }
   catch (e) {

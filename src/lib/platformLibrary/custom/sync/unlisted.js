@@ -94,7 +94,7 @@ export default async ({
 
     return {
       post: post.data,
-      status: "published",
+      status: "unlisted",
     }
 
 

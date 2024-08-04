@@ -172,7 +172,7 @@ describe('project', () => {
     })
     expect(result).toBeTruthy()
   })
-  it('updates to custom and devto via minio', async () => {
+  it.skip('updates to adoucoure.local via minio', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
     const operation = (await import('./path.js')).default
@@ -187,15 +187,7 @@ describe('project', () => {
             accessKey: process.env.TEST_CUSTOM_ACCESS_KEY,
             secretKey: process.env.TEST_CUSTOM_SECRET_KEY,
           }
-        },
-          // {
-          //   id: 'devto',
-          // type: 'devto',
-          //   auth: {
-          //     token: process.env.TEST_DEVTO_TOKEN,
-          //   }
-          // },
-        ],
+        }],
         clouds: [{
           id: "minio",
           auth: {
@@ -203,6 +195,37 @@ describe('project', () => {
             accessKey: process.env.TEST_MINIO_ACCESS_KEY,
             secretKey: process.env.TEST_MINIO_SECRET,
             bucketName: process.env.TEST_MINIO_BUCKET_NAME
+          }
+        },],
+        notifyFollowers: false
+      },
+      path,
+    })
+    expect(result).toBeTruthy()
+  })
+  it('updates to adoucoure.app via minio', async () => {
+    const fsPath = (await import('path')).default
+    let path = fsPath.resolve(process.env.TEST_ADOUCOURE_REMOTE_FOLDER)
+    const operation = (await import('./path.js')).default
+    const result = await operation({
+      settings: {
+        forceSync: true,
+        platforms: [{
+          id: 'adoucoure.remote',
+          type: 'custom',
+          endPoint: process.env.TEST_ADOUCOURE_REMOTE_ENDPOINT,
+          auth: {
+            accessKey: process.env.TEST_ADOUCOURE_REMOTE_ACCESS_KEY,
+            secretKey: process.env.TEST_ADOUCOURE_REMOTE_SECRET_KEY,
+          }
+        }],
+        clouds: [{
+          id: "minio",
+          auth: {
+            endPoint: process.env.TEST_ADOUCOURE_REMOTE_MINIO_ENDPOINT,
+            accessKey: process.env.TEST_ADOUCOURE_REMOTE_MINIO_ACCESS_KEY,
+            secretKey: process.env.TEST_ADOUCOURE_REMOTE_MINIO_SECRET,
+            bucketName: process.env.TEST_ADOUCOURE_REMOTE_MINIO_BUCKET_NAME
           }
         },],
         notifyFollowers: false

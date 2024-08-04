@@ -2,7 +2,7 @@ import fsPath from 'path'
 import isLocal from 'is-local'
 import isRelative from 'is-relative'
 import sharp from 'sharp'
-import checkFileExists from '../../../../lib/fs/checkFileExists'
+import checkFileExists from '../../../../lib/fs/checkFileExists.js'
 
 export default async ({
   path, thumbnailPath }) => {

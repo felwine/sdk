@@ -1,7 +1,7 @@
 import fsPath from 'path'
 import isLocal from 'is-local'
 import isRelative from 'is-relative'
-import checkFileExists from '../../../../lib/fs/checkFileExists'
+import checkFileExists from '../../../../lib/fs/checkFileExists.js'
 import upload from '../upload.js'
 
 export default async ({

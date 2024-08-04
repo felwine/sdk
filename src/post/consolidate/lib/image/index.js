@@ -18,6 +18,10 @@ export default async ({ child,
     result = await treatRemoteFile({ url, destination })
   }
 
+  // if (!result) {
+  //   return child
+  // }
+
   let filename = result.filename
   const newUrl = `assets/${filename}`
   return {
@@ -57,6 +61,7 @@ const treatRemoteFile = async ({ url,
   }
   catch (e) {
     console.error(e)
+    return null
   }
 }
 

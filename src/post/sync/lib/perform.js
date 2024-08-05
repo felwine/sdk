@@ -41,6 +41,14 @@ export default async (props) => {
     sync: manifest.sync,
     thumbnail: entry.thumbnail,
     thumbnailUrl: entry.thumbnailUrl,
+    license: manifest.license,
+    targets: manifest.targets,
+    rubric: manifest.rubric,
+    incorrectness: manifest.incorrectness,
+    subCategory: manifest.subCategory,
+    layout: manifest.layout,
+    blocks: manifest.blocks,
+    attachments: manifest.attachments,
   }))
 
   const {
@@ -87,7 +95,8 @@ export default async (props) => {
       }
     }
 
-    if (platformInActivity.status === targetStatus
+    if (platformInActivity.status !== 'failed'
+      && platformInActivity.status === targetStatus
       && platformInActivity.sha === dataSHA) {
       platformsInActivity.push(platformInActivity)
       if (!settings.forceSync) {

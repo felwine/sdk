@@ -21,7 +21,9 @@ describe('project', () => {
             endPoint: process.env.TEST_MINIO_ENDPOINT,
             accessKey: process.env.TEST_MINIO_ACCESS_KEY,
             secretKey: process.env.TEST_MINIO_SECRET,
-            bucketName: process.env.TEST_MINIO_BUCKET_NAME
+            bucketName: process.env.TEST_MINIO_BUCKET_NAME,
+            port: process.env.TEST_MINIO_PORT,
+            isLocal: true
           }
         },],
         notifyFollowers: false
@@ -51,7 +53,9 @@ describe('project', () => {
             endPoint: process.env.TEST_MINIO_ENDPOINT,
             accessKey: process.env.TEST_MINIO_ACCESS_KEY,
             secretKey: process.env.TEST_MINIO_SECRET,
-            bucketName: process.env.TEST_MINIO_BUCKET_NAME
+            bucketName: process.env.TEST_MINIO_BUCKET_NAME,
+            port: process.env.TEST_MINIO_PORT,
+            isLocal: true
           }
         },],
         notifyFollowers: false
@@ -163,7 +167,9 @@ describe('project', () => {
             endPoint: process.env.TEST_MINIO_ENDPOINT,
             accessKey: process.env.TEST_MINIO_ACCESS_KEY,
             secretKey: process.env.TEST_MINIO_SECRET,
-            bucketName: process.env.TEST_MINIO_BUCKET_NAME
+            bucketName: process.env.TEST_MINIO_BUCKET_NAME,
+            port: process.env.TEST_MINIO_PORT,
+            isLocal: true
           }
         },],
         notifyFollowers: false
@@ -194,7 +200,9 @@ describe('project', () => {
             endPoint: process.env.TEST_MINIO_ENDPOINT,
             accessKey: process.env.TEST_MINIO_ACCESS_KEY,
             secretKey: process.env.TEST_MINIO_SECRET,
-            bucketName: process.env.TEST_MINIO_BUCKET_NAME
+            bucketName: process.env.TEST_MINIO_BUCKET_NAME,
+            port: process.env.TEST_MINIO_PORT,
+            isLocal: true
           }
         },],
         notifyFollowers: false
@@ -203,7 +211,7 @@ describe('project', () => {
     })
     expect(result).toBeTruthy()
   })
-  it.skip('updates to adoucoure.app via minio', async () => {
+  it('updates to adoucoure.app via minio', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_ADOUCOURE_REMOTE_FOLDER)
     const operation = (await import('./path.js')).default

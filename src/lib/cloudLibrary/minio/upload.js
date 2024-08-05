@@ -12,16 +12,23 @@ export default async ({
       endPoint,
       accessKey,
       secretKey,
-      bucketName
+      bucketName,
+      port,
+      isLocal = false
     } = auth
 
-    const minioClient = new Minio.Client({
+    const minioClient = isLocal ? new Minio.Client({
       endPoint,
-      // port,
-      // useSSL,
+      port: parseInt(port),
+      useSSL: false,
       accessKey,
       secretKey,
-    })
+    }) :
+      new Minio.Client({
+        endPoint,
+        accessKey,
+        secretKey,
+      })
 
     const destinationObject = filename
 
@@ -50,7 +57,8 @@ export default async ({
           resolve(objInfo)
         })
     })
-    const url = `https://${endPoint}/${bucketName}/${filename}`
+    const url = isLocal ? `http://${endPoint}:${port}/${bucketName}/${filename}`
+      : `https://${endPoint}/${bucketName}/${filename}`
     return { url }
 
   } catch (e) {

@@ -172,13 +172,13 @@ describe('project', () => {
     })
     expect(result).toBeTruthy()
   })
-  it.skip('updates to adoucoure.local via minio', async () => {
+  it('updates to adoucoure.local via minio', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
     const operation = (await import('./path.js')).default
     const result = await operation({
       settings: {
-        forceSync: true,
+        forceSync: false,
         platforms: [{
           id: 'adoucoure.local',
           type: 'custom',
@@ -209,7 +209,7 @@ describe('project', () => {
     const operation = (await import('./path.js')).default
     const result = await operation({
       settings: {
-        forceSync: true,
+        forceSync: false,
         platforms: [{
           id: 'adoucoure.remote',
           type: 'custom',

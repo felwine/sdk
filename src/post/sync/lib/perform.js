@@ -25,7 +25,23 @@ export default async (props) => {
 
   await reset({ path })
 
-  const dataSHA = sha256(JSON.stringify(content))
+  const dataSHA = sha256(JSON.stringify({
+    content,
+    excerpt: entry.excerpt,
+    status: manifest.status,
+    series: manifest.series,
+    thumbnail: manifest.thumbnail,
+    tags: manifest.tags,
+    disciplines: manifest.disciplines,
+    category: manifest.category,
+    bits: manifest.bits,
+    locale: manifest.locale,
+    mediaTypes: manifest.mediaTypes,
+    recap: manifest.recap,
+    sync: manifest.sync,
+    thumbnail: entry.thumbnail,
+    thumbnailUrl: entry.thumbnailUrl,
+  }))
 
   const {
     license,
@@ -168,3 +184,4 @@ const applicablePlatforms = (props) => {
 
   return platforms
 }
+

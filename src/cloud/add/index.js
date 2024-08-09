@@ -5,7 +5,8 @@ import validate from './lib/validate.js'
 export default async ({
   path,
   cloud,
-  settings = {}
+  settings = {},
+
 }) => {
 
   try {
@@ -24,7 +25,9 @@ export default async ({
           const a = {
             ...cloud,
           }
-          delete a.auth
+          if (settings.dontSaveSensitivePlatform) {
+            delete a.auth
+          }
           return a
         }),
       }

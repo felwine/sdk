@@ -1,6 +1,7 @@
 import markdownToLexer from "../../../../../lib/remark/markdownToLexer.js"
 import mdastToMarkdown from "../../../../../lib/remark/mdastToMarkdown.js"
 import transformImages from "./transformImages.js"
+import formatPosteps from "./formatPosteps.js"
 
 
 export default async (props) => {
@@ -11,6 +12,10 @@ export default async (props) => {
   })
 
   entry = await transformImages({
+    child: entry,
+  })
+
+  entry = await formatPosteps({
     child: entry,
   })
 

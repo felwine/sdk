@@ -1,12 +1,11 @@
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
-// import remarkDirective from 'remark-directive'
+import remarkDirective from 'remark-directive'
 
-export default ({ data } = {}) => {
+export default ({ data, useDirectives = false } = {}) => {
   const tokens = unified()
     .use(remarkParse, { gfm: true })
-    // .use(remarkDirective)
-
+    .use(useDirectives ? remarkDirective : null)
     .parse(data)
 
 
@@ -18,5 +17,14 @@ export default ({ data } = {}) => {
 
   // const a = mdastToHTML({ mdast: _tokens })
 
+  return tokens
+}
+
+
+export const useDirectives = ({ data, useDirectives = false } = {}) => {
+  const tokens = unified()
+    .use(remarkParse, { gfm: true })
+    .use(remarkDirective)
+    .parse(data)
   return tokens
 }

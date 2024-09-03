@@ -9,6 +9,14 @@ export default async ({ child,
   path, }) => {
   const { url } = child
 
+  if (!url) {
+    return child
+  }
+
+  if (isInAssets(url)) {
+    return child
+  }
+
   let result
   const destination = `${path}/assets`
   if (isLocal(url)) {
@@ -28,6 +36,11 @@ export default async ({ child,
     ...child,
     url: newUrl
   }
+}
+
+
+const isInAssets = (url) => {
+  return ((url.indexOf('assets/') === 0) || (url.indexOf('./assets') === 0))
 }
 
 const treatLocalFile = async ({

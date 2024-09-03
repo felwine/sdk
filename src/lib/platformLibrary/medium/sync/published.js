@@ -8,9 +8,9 @@ export default async ({
   platformInActivity
 }) => {
   if (platformInActivity && platformInActivity.post && platformInActivity.post.id) {
-    // return {
-    //   post: platformInActivity.post
-    // }
+    return {
+      post: platformInActivity.post
+    }
   }
 
   const {

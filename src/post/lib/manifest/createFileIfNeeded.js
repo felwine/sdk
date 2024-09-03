@@ -21,7 +21,6 @@ export default async ({
     let defaultManifest = YAML.parse(`
       status: draft
       sync: true
-      license: all-rights-reserved
       excerpt:
       rubric:
       mediaTypes:
@@ -77,6 +76,7 @@ export default async ({
 #       progress: <progress>
 # canonicalUrl: <progress>
 # incorrectness: 0
+# license: all-rights-reserved
     `
 
     await fs.promises.writeFile(filePath, manifest)

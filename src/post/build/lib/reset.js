@@ -1,4 +1,4 @@
-import checkFileExists from "../../../lib/fs/checkFileExists"
+import checkFileExists from "../../../lib/fs/checkFileExists.js"
 import fs from 'fs'
 
 export default async ({

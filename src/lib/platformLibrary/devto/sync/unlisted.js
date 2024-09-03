@@ -6,7 +6,6 @@ export default async ({ payload, platformInActivity }) => {
     title,
     content,
     license = 'all-rights-reserved',
-    canonicalUrl,
     tags = [],
   } = payload
   try {

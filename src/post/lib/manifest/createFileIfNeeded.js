@@ -26,7 +26,6 @@ export default async ({
       rubric:
       mediaTypes:
         - post
-      incorrectness: 0
     `)
 
     let manifest = {
@@ -76,6 +75,8 @@ export default async ({
 #         - <Author 1 name>
 #       rating: <number>
 #       progress: <progress>
+# canonicalUrl: <progress>
+# incorrectness: 0
     `
 
     await fs.promises.writeFile(filePath, manifest)

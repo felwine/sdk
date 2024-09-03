@@ -9,12 +9,7 @@ export default async ({
   title = "My new post",
   platforms = [],
   status = "draft",
-  canonicalUrl = "",
   tags,
-  author = {
-    id: "",
-    name: ""
-  },
   force = false
 }) => {
   try {
@@ -42,9 +37,7 @@ export default async ({
       data: {
         name: title,
         platforms,
-        canonicalUrl,
         status,
-        author,
         tags
       }
     })

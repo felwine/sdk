@@ -48,7 +48,7 @@ const perform = async (props) => {
       const postOptimizedPath = fsPath.join(folderPath, '.post.optimized.md')
       const postCloudPath = fsPath.join(folderPath, '.post.cloud.md')
       const manifestPath = fsPath.join(folderPath, 'manifest.yaml')
-      const activityPath = fsPath.join(folderPath, '.activity.json')
+      const activityPath = fsPath.join(folderPath, 'assets/.activity.json')
       let thumbnailPath = fsPath.join(folderPath, 'thumbnail.png')
 
       if (!(await isPathEntry({ path: folderPath }))) {

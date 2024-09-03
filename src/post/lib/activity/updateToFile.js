@@ -12,7 +12,7 @@ export default async ({
 
   try {
 
-    const filePath = fsPath.join(path, ".activity.json")
+    const filePath = fsPath.join(path, "assets/.activity.json")
 
     if (!(await checkFileExists(filePath))) {
       return

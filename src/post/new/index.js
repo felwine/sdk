@@ -54,9 +54,9 @@ export default async ({
     const post = `# ${title}`
     await fs.promises.writeFile(postPath, post, 'utf8')
 
-    const excerptPath = fsPath.join(folderPath, "excerpt.md")
-    const excerpt = ``
-    await fs.promises.writeFile(excerptPath, excerpt, 'utf8')
+    // const excerptPath = fsPath.join(folderPath, "excerpt.md")
+    // const excerpt = ``
+    // await fs.promises.writeFile(excerptPath, excerpt, 'utf8')
 
     return true
   } catch (e) {

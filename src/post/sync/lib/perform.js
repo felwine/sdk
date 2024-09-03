@@ -7,6 +7,7 @@ export default async (props) => {
   const { entry, settings } = props
   const { path, activity, manifest } = entry
 
+
   let content = props.source
     ? props.source
     : (entry.post.cloud ? entry.post.cloud : entry.post.optimized)
@@ -27,7 +28,7 @@ export default async (props) => {
 
   const dataSHA = sha256(JSON.stringify({
     content,
-    excerpt: entry.excerpt,
+    excerpt: entry.excerpt ? entry.excerpt : entry.manifest.excerpt,
     status: manifest.status,
     series: manifest.series,
     thumbnail: manifest.thumbnail,

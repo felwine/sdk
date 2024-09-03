@@ -6,8 +6,8 @@ export default async ({
   md,
   html }) => {
 
-  const mdPath = fsPath.join(path, ".post.cloud.md")
-  const htmlPath = fsPath.join(path, ".post.cloud.html")
+  const mdPath = fsPath.join(path, ".build/post.cloud.md")
+  const htmlPath = fsPath.join(path, ".build/.post.cloud.html")
 
   await fs.promises.writeFile(mdPath, md, 'utf8')
   await fs.promises.writeFile(htmlPath, html, 'utf8')

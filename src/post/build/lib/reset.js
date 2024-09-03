@@ -1,16 +1,16 @@
-import fsPath from 'path'
+import checkFileExists from "../../../lib/fs/checkFileExists"
 import fs from 'fs'
-import checkFileExists from '../../../lib/fs/checkFileExists.js'
 
 export default async ({
   path, }) => {
 
-  const buildPath = fsPath.join(path, "build")
-  if (!(await checkFileExists(buildPath))) {
-    return
+  const buildPath = `${path}/.build`
+  if ((await checkFileExists(buildPath))) {
+    await fs.promises.rmdir(
+      buildPath,
+      { recursive: true }
+    )
   }
+  await fs.promises.mkdir(buildPath)
 
-  let success = await fs.promises.rmdir(buildPath, { recursive: true })
-  success = true
-  return success
 }

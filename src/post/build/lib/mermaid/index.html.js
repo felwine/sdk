@@ -19,7 +19,7 @@ export default async ({ child,
     const filenameRaw = `${dataSHA}.png`
     const extension = `png`
     const filename = `${filenameRaw}.${extension}`
-    const newUrl = `.build/${filename}`
+    const newUrl = `.build/assets/${filename}`
     const destination = `${path}/${newUrl}`
     await ensureDirectoryExists(destination)
 

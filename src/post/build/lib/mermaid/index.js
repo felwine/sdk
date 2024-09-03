@@ -14,7 +14,7 @@ export default async ({ child,
     const filenameRaw = `${dataSHA}`
     const extension = `svg`
     const filename = `${filenameRaw}.${extension}`
-    const newUrl = `.build/${filename}`
+    const newUrl = `.build/assets/${filename}`
     const destination = `${path}/${newUrl}`
     await ensureDirectoryExists(destination)
 
@@ -26,7 +26,7 @@ export default async ({ child,
     return {
       ...child,
       type: 'image',
-      url: `.build/${filename}`,
+      url: `.build/assets/${filename}`,
     }
   } catch (e) {
     console.error(e)

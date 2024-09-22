@@ -24,9 +24,7 @@ const perform = async (props) => {
     }
   }
 
-  const firstChild = child.children[0]
-  const parts = firstChild.value.split('#felwine-step')
-
+  const text = child.value.split('::postep[')[1].split(']')[0]
   return {
     ...child,
     type: 'heading',
@@ -35,7 +33,7 @@ const perform = async (props) => {
     children: [
       {
         type: 'text',
-        value: parts[0]
+        value: text
       }
     ]
   }
@@ -43,20 +41,9 @@ const perform = async (props) => {
 
 
 const qualify = child => {
-  if (child.type !== 'heading') {
-    return false
-  }
-
-  if (child.depth !== 2) {
-    return false
-  }
-
-  if (!child.children || !child.children.length) {
-    return false
-  }
-
-  const firstChild = child.children[0]
-  if (firstChild.value.split('#felwine-step').length < 2) {
+  if (child.type !== 'text'
+    || !child.value
+    || child.value.indexOf('::postep[') !== 0) {
     return false
   }
 

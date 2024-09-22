@@ -194,13 +194,13 @@ describe('project', () => {
             secretKey: process.env.TEST_CUSTOM_SECRET_KEY,
           }
         },
-          // {
-          //   id: 'devto',
-          //   type: 'devto',
-          //   auth: {
-          //     token: process.env.TEST_DEVTO_TOKEN,
-          //   }
-          // },
+        {
+          id: 'devto',
+          type: 'devto',
+          auth: {
+            token: process.env.TEST_DEVTO_TOKEN,
+          }
+        },
         ],
         clouds: [{
           id: "minio",

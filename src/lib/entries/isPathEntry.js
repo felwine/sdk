@@ -22,8 +22,7 @@ export default async (props) => {
   }
 
   const postPath = fsPath.join(path, 'post.md')
-  const manifestPath = fsPath.join(path, 'post.yaml')
 
-  return ((await checkFileExists(postPath))
-    && (await checkFileExists(manifestPath)))
+
+  return (await checkFileExists(postPath))
 }

@@ -1,8 +1,8 @@
 import fsPath from 'path'
 import fs from 'fs'
 import checkFileExists from '../../lib/fs/checkFileExists.js'
-import createStatusIfNeeded from '../lib/activity/createFileIfNeeded.js'
-import createManifestIfNeeded from '../lib/manifest/createFileIfNeeded.js'
+import createStatusIfNeeded from '../lib/activity/createProjectActivityFileIfNeeded.js'
+import createManifestIfNeeded from '../lib/manifest/createProjectFileIfNeeded.js'
 
 export default async ({
   path,

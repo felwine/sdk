@@ -3,11 +3,11 @@ import fs from 'fs'
 import fsPath from 'path'
 import _ from 'underscore'
 import importJSONAsync from "../fs/importJSONAsync.js"
-import importYAMLAsync from "../fs/importYAMLAsync.js"
 import markdownToLexer from '../remark/markdownToLexer.js'
-import createActivityIfNeeded from '../../post/lib/activity/createFileIfNeeded.js'
+import createActivityIfNeeded from '../../post/lib/activity/createActivityFileIfNeeded.js'
 import isPathEntry from './isPathEntry.js'
 import { nanoid } from 'nanoid'
+import frontmatter from 'frontmatter'
 
 const perform = async (props) => {
   const {
@@ -39,15 +39,12 @@ const perform = async (props) => {
         return null
       }
 
-
-
       const postPath = fsPath.join(folderPath, 'post.md')
       const excerptPath = fsPath.join(folderPath, 'excerpt.md')
       const postConsolidatedPath = fsPath.join(folderPath, 'build/.post.consolidated.md')
       const postBuiltPath = fsPath.join(folderPath, 'build/.post.built.md')
       const postOptimizedPath = fsPath.join(folderPath, 'build/.post.optimized.md')
       const postCloudPath = fsPath.join(folderPath, 'build/.post.cloud.md')
-      const manifestPath = fsPath.join(folderPath, 'post.yaml')
       const activityPath = fsPath.join(folderPath, 'assets/.activity.json')
       let thumbnailPath = fsPath.join(folderPath, 'thumbnail.png')
 
@@ -60,12 +57,15 @@ const perform = async (props) => {
 
       await createActivityIfNeeded({ path: folderPath })
 
-      const post = await fs.promises.readFile(postPath, 'utf8')
+      let post = await fs.promises.readFile(postPath, 'utf8')
+      const _m = frontmatter(post)
+      post = _m.content.trim()
+
       const postMdast = markdownToLexer({
         data: post
       })
 
-      const manifest = await importYAMLAsync(manifestPath)
+      const manifest = _m.data
       if (!manifest.sync) {
         return null
       }
@@ -79,6 +79,7 @@ const perform = async (props) => {
       let excerpt = null
       let activity = null
       let thumbnail
+
       if (await checkFileExists(postConsolidatedPath)) {
         postConsolidated = await fs.promises.readFile(postConsolidatedPath, 'utf8')
         postConsolidatedMdast = markdownToLexer({
@@ -138,12 +139,15 @@ const perform = async (props) => {
       if (manifest) {
         id = manifest.id
       }
+
       if (!id) {
         id = nanoid()
         if (manifest) {
           manifest.id = id
         }
       }
+
+
 
       return [{
         id,
@@ -171,7 +175,6 @@ const perform = async (props) => {
           optimized: postOptimized
         }
       }]
-
     }))).filter(a => a)
 
     results = _.flatten(results)

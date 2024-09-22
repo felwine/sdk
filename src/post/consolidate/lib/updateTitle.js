@@ -1,4 +1,4 @@
-import updateManifest from "../../lib/manifest/update.js"
+import updatePostFile from "../../lib/postfile/update.js"
 
 export default async (props) => {
   const { child, path, manifest } = props
@@ -12,7 +12,7 @@ export default async (props) => {
   }
 
   manifest.title = h1.children[0].value
-  await updateManifest({ path, manifest })
+  await updatePostFile({ path, manifest })
 }
 
 const perform = async (props) => {

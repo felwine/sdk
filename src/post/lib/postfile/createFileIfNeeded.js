@@ -1,22 +1,20 @@
 import fsPath from 'path'
-import fs from 'fs'
 import checkFileExists from '../../../lib/fs/checkFileExists.js'
 import YAML from 'yaml'
+import updateToFile from './updateToFile.js'
 
 export default async ({
   path,
-  data = {}
+  post = "",
+  manifest = {}
 }) => {
 
-
   try {
-
-    const filePath = fsPath.join(path, "post.yaml")
+    const filePath = fsPath.join(path, "post.md")
 
     if ((await checkFileExists(filePath))) {
       return
     }
-
 
     let defaultManifest = YAML.parse(`
       status: draft
@@ -27,14 +25,14 @@ export default async ({
         - post
     `)
 
-    let manifest = {
+    let _manifest = {
       ...defaultManifest,
       createdAt: (new Date()),
-      ...data
+      ...manifest
     }
 
-    manifest = YAML.stringify(manifest)
-    manifest +=
+    _manifest = YAML.stringify(_manifest)
+    _manifest +=
       `# bits:
 #   - item 1
 #   - item 2
@@ -79,8 +77,7 @@ export default async ({
 # license: all-rights-reserved
     `
 
-    await fs.promises.writeFile(filePath, manifest)
-    return true
+    return updateToFile({ path, manifest: _manifest, post })
   } catch (e) {
     console.error(e)
   }

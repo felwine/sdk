@@ -41,12 +41,12 @@ const perform = async (props) => {
 
       const postPath = fsPath.join(folderPath, 'post.md')
       const excerptPath = fsPath.join(folderPath, 'excerpt.md')
-      const postConsolidatedPath = fsPath.join(folderPath, '.post.consolidated.md')
-      const postBuiltPath = fsPath.join(folderPath, '.post.built.md')
-      const postOptimizedPath = fsPath.join(folderPath, '.post.optimized.md')
-      const postCloudPath = fsPath.join(folderPath, '.post.cloud.md')
-      const manifestPath = fsPath.join(folderPath, 'manifest.yaml')
-      const statusPath = fsPath.join(folderPath, '.activity.json')
+      const postConsolidatedPath = fsPath.join(folderPath, 'build/.post.consolidated.md')
+      const postBuiltPath = fsPath.join(folderPath, 'build/.post.built.md')
+      const postOptimizedPath = fsPath.join(folderPath, 'build/.post.optimized.md')
+      const postCloudPath = fsPath.join(folderPath, 'build/.post.cloud.md')
+      const manifestPath = fsPath.join(folderPath, 'post.yaml')
+      const statusPath = fsPath.join(folderPath, 'assets/.activity.json')
 
       if (!(await checkFileExists(postPath))
         || !(await checkFileExists(manifestPath))

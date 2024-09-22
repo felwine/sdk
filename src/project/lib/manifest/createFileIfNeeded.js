@@ -12,7 +12,7 @@ export default async ({
 
   try {
 
-    const filePath = fsPath.join(path, "manifest.yaml")
+    const filePath = fsPath.join(path, "project.yaml")
 
     if ((await checkFileExists(filePath))) {
       return

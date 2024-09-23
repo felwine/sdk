@@ -178,7 +178,7 @@ describe('project', () => {
     })
     expect(result).toBeTruthy()
   })
-  it.skip('updates to adoucoure.local via minio', async () => {
+  it('updates to adoucoure.local via minio', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
     const operation = (await import('./path.js')).default

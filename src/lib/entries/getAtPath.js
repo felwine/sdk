@@ -8,6 +8,7 @@ import createActivityIfNeeded from '../../post/lib/activity/createActivityFileIf
 import isPathEntry from './isPathEntry.js'
 import { nanoid } from 'nanoid'
 import frontmatter from 'frontmatter'
+import createBuildIfNeeded from '../../post/lib/createBuildIfNeeded.js'
 
 const perform = async (props) => {
   const {
@@ -56,6 +57,7 @@ const perform = async (props) => {
       }
 
       await createActivityIfNeeded({ path: folderPath })
+      await createBuildIfNeeded({ path: folderPath })
 
       let post = await fs.promises.readFile(postPath, 'utf8')
       const _m = frontmatter(post)

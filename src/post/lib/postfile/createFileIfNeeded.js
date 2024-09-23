@@ -17,23 +17,13 @@ export default async ({
     }
 
     let defaultManifest = YAML.parse(`
-      status: draft
-      sync: true
-      excerpt:
-      rubric:
-      mediaTypes:
-        - post
-    `)
-
-    let _manifest = {
-      ...defaultManifest,
-      createdAt: (new Date()),
-      ...manifest
-    }
-
-    _manifest = YAML.stringify(_manifest)
-    _manifest +=
-      `# bits:
+status: draft
+sync: true
+excerpt:
+rubric:
+mediaTypes:
+  - post
+# bits:
 #   - item 1
 #   - item 2
 # recap:
@@ -75,7 +65,13 @@ export default async ({
 # canonicalUrl: <progress>
 # incorrectness: 0
 # license: all-rights-reserved
-    `
+    `)
+
+    let _manifest = {
+      ...defaultManifest,
+      createdAt: (new Date()),
+      ...manifest
+    }
 
     return updateToFile({ path, manifest: _manifest, post })
   } catch (e) {

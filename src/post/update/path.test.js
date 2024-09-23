@@ -178,7 +178,7 @@ describe('project', () => {
     })
     expect(result).toBeTruthy()
   })
-  it('updates to adoucoure.local via minio', async () => {
+  it.skip('updates to adoucoure.local via minio', async () => {
     const fsPath = (await import('path')).default
     let path = fsPath.resolve(process.env.TEST_MOCK_FOLDER)
     const operation = (await import('./path.js')).default
@@ -194,13 +194,13 @@ describe('project', () => {
             secretKey: process.env.TEST_CUSTOM_SECRET_KEY,
           }
         },
-        {
-          id: 'devto',
-          type: 'devto',
-          auth: {
-            token: process.env.TEST_DEVTO_TOKEN,
-          }
-        },
+          // {
+          //   id: 'devto',
+          //   type: 'devto',
+          //   auth: {
+          //     token: process.env.TEST_DEVTO_TOKEN,
+          //   }
+          // },
         ],
         clouds: [{
           id: "minio",

@@ -10,6 +10,16 @@ export default async ({
     id = platformInActivity.post.id
   }
 
+  let series = null
+  if (payload.series && payload.series.activity && payload.series.activity.platforms) {
+    const p = payload.series.activity.platforms.find(a => a.id === payload.platform.id)
+    if (p) {
+      series = {
+        index: payload.series.index,
+        id: p.post.id
+      }
+    }
+  }
 
   const {
     platform,

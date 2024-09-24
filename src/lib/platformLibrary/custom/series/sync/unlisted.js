@@ -16,7 +16,6 @@ export default async ({
     platform,
     title,
     content,
-    contentHTML,
     contentFormat = "markdown",
     publishStatus = "unlisted",
     license = "all-rights-reserved",

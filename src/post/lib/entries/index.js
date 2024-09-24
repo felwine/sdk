@@ -46,14 +46,12 @@ const perform = async (props) => {
         })
       }
 
-
       if (!(await isPathEntry({ path: folderPath }))) {
         return perform({
           ...props,
           path: folderPath
         })
       }
-
 
       return getEntry({
         path: folderPath,

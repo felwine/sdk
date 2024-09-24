@@ -1,5 +1,5 @@
 import perform from './lib/perform.js'
-import getEntries from '../../lib/entries/getAtPath.js'
+import getEntries from '../lib/entries/index.js'
 
 export default async ({
   path,

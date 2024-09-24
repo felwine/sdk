@@ -5,7 +5,7 @@ import _ from 'underscore'
 import importJSONAsync from "./fs/importJSONAsync.js"
 import importYAMLAsync from "./fs/importYAMLAsync.js"
 import markdownToLexer from './remark/markdownToLexer.js'
-import createStatusIfNeeded from '../post/lib/activity/createActivityFileIfNeeded.js'
+import createStatusIfNeeded from '../post/lib/postfile/activity/createActivityFileIfNeeded.js'
 
 const perform = async (props) => {
   const {

@@ -1,6 +1,6 @@
 import reset from './reset.js'
 import { sha256 } from 'js-sha256'
-import updateActivity from '../../lib/activity/updateToFile.js'
+import updateActivity from '../../lib/postfile/activity/updateToFile.js'
 
 export default async (props) => {
 
@@ -26,11 +26,19 @@ export default async (props) => {
 
   await reset({ path })
 
+  let series = entry.series ? entry.series : {}
+  if (manifest.series) {
+    series = {
+      ...manifest.series,
+      ...series,
+    }
+  }
+
   const dataSHA = sha256(JSON.stringify({
     content,
     excerpt: entry.excerpt ? entry.excerpt : entry.manifest.excerpt,
     status: manifest.status,
-    series: manifest.series,
+    series,
     thumbnail: manifest.thumbnail,
     tags: manifest.tags,
     disciplines: manifest.disciplines,
@@ -58,7 +66,6 @@ export default async (props) => {
     title,
     rubric,
     thumbnail,
-    series,
     mediaTypes,
     layout,
     incorrectness,

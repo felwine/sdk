@@ -60,7 +60,7 @@ export default async (props) => {
     attachments: manifest.attachments,
   }))
 
-  const {
+  let {
     license,
     tags,
     title,
@@ -80,6 +80,9 @@ export default async (props) => {
     attachments,
     status: targetStatus } = entry.manifest
 
+  if (series && series.manifest && series.manifest.status) {
+    targetStatus = series.manifest.status
+  }
 
   let platforms = applicablePlatforms({ settings, manifest })
   if (!platforms || !platforms.length) {

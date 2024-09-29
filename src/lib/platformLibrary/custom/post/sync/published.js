@@ -48,7 +48,8 @@ export default async ({
     locale,
     blocks,
     bits,
-    attachments
+    attachments,
+    projects,
   } = payload
 
   try {
@@ -96,7 +97,8 @@ export default async ({
         subCategory,
         locale,
         blocks,
-        bits
+        bits,
+        projects,
       }
     })
 

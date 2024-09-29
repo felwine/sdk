@@ -78,6 +78,7 @@ export default async (props) => {
     blocks,
     bits,
     attachments,
+    projects,
     status: targetStatus } = entry.manifest
 
   if (series && series.manifest && series.manifest.status) {
@@ -148,6 +149,7 @@ export default async (props) => {
       blocks,
       bits,
       attachments,
+      projects,
       excerpt: entry.excerpt ? entry.excerpt : entry.manifest.excerpt,
     }
 
